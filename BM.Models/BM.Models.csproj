@@ -30,12 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer">
-      <HintPath>..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -48,57 +42,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="birdmanBlog.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>birdmanBlog.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="birdmanBlog.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>birdmanBlog.tt</DependentUpon>
-    </Compile>
-    <Compile Include="birdmanBlog.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>birdmanBlog.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="tb_Email.cs">
-      <DependentUpon>birdmanBlog.tt</DependentUpon>
-    </Compile>
-    <Compile Include="tb_error.cs">
-      <DependentUpon>birdmanBlog.tt</DependentUpon>
-    </Compile>
-    <Compile Include="tb_OperateLog.cs">
-      <DependentUpon>birdmanBlog.tt</DependentUpon>
-    </Compile>
-    <Compile Include="tb_SensitiveWord.cs">
-      <DependentUpon>birdmanBlog.tt</DependentUpon>
-    </Compile>
-    <Compile Include="tb_Users.cs">
-      <DependentUpon>birdmanBlog.tt</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
-    <EntityDeploy Include="birdmanBlog.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>birdmanBlog.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="birdmanBlog.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>birdmanBlog.edmx</DependentUpon>
-      <LastGenOutput>birdmanBlog.Context.cs</LastGenOutput>
-    </None>
-    <None Include="birdmanBlog.edmx.diagram">
-      <DependentUpon>birdmanBlog.edmx</DependentUpon>
-    </None>
-    <None Include="birdmanBlog.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>birdmanBlog.edmx</DependentUpon>
-      <LastGenOutput>birdmanBlog.cs</LastGenOutput>
-    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
