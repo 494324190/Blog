@@ -42,14 +42,63 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Blog.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Blog.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Blog.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Blog.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Blog.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Blog.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="tb_Article.cs">
+      <DependentUpon>Blog.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tb_ArticleClassification.cs">
+      <DependentUpon>Blog.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tb_ErrorLog.cs">
+      <DependentUpon>Blog.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tb_OperateLog.cs">
+      <DependentUpon>Blog.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tb_SensitiveWord.cs">
+      <DependentUpon>Blog.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
+    <EntityDeploy Include="Blog.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Blog.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Blog.edmx.diagram">
+      <DependentUpon>Blog.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Blog.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Blog.edmx</DependentUpon>
+      <LastGenOutput>Blog.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Blog.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Blog.edmx</DependentUpon>
+      <LastGenOutput>Blog.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

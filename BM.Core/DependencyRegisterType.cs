@@ -35,8 +35,8 @@ namespace BM.Core
             container.RegisterType<ICommonDAL<tb_SensitiveWord>, CommonDAL<tb_SensitiveWord>>();
             container.RegisterType<ICommonBLL<tb_SensitiveWord>, CommonBLL<tb_SensitiveWord>>();
             //用户信息注入
-            container.RegisterType<ICommonDAL<tb_Users>, CommonDAL<tb_Users>>();
-            container.RegisterType<ICommonBLL<tb_Users>, CommonBLL<tb_Users>>();
+            //container.RegisterType<ICommonDAL<tb_Users>, CommonDAL<tb_Users>>();
+            //container.RegisterType<ICommonBLL<tb_Users>, CommonBLL<tb_Users>>();
         }
     }
 }
