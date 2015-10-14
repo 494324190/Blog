@@ -42,6 +42,7 @@
           <Property Name="OperateType" Type="int" Nullable="false" />
           <Property Name="Page" Type="nvarchar" MaxLength="500" Nullable="false" />
           <Property Name="DateTime" Type="datetime" Nullable="false" />
+          <Property Name="Ip" Type="nvarchar" MaxLength="14" />
         </EntityType>
         <EntityType Name="tb_SensitiveWord">
           <Key>
@@ -127,6 +128,7 @@
           <Property Name="OperateType" Type="Int32" Nullable="false" />
           <Property Name="Page" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="DateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Ip" Type="String" MaxLength="14" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="tb_SensitiveWord">
           <Key>
@@ -188,6 +190,7 @@
           <EntitySetMapping Name="tb_OperateLog">
             <EntityTypeMapping TypeName="BlogModel.tb_OperateLog">
               <MappingFragment StoreEntitySet="tb_OperateLog">
+                <ScalarProperty Name="Ip" ColumnName="Ip" />
                 <ScalarProperty Name="DateTime" ColumnName="DateTime" />
                 <ScalarProperty Name="Page" ColumnName="Page" />
                 <ScalarProperty Name="OperateType" ColumnName="OperateType" />

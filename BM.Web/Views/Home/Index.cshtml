@@ -1,26 +1,82 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
-
-
+<style>
+    .dl-horizontal dd {
+        margin-left: 0px;
+    }
+     .dl-horizontal dt {
+         width: auto;
+    }
+</style>
 <div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+    <div class="col-md-3 hidden-xs">
+        <div class="row">
+            <div class="col-md-12 col-sm-3 ">
+                <img class="img-circle img-responsive" src="../../Img/tx.jpg"/>
+            </div>
+            <div class="col-md-12 col-sm-3 Link">
+                <dl class="dl-horizontal">
+                    <dt>
+                        姓名：
+                    </dt>
+                    <dd>
+                        Thomas Zhu
+                    </dd>
+                    <dt>
+                        电话：
+                    </dt>
+                    <dd>
+                        18511693445
+                    </dd>
+                    <dt>
+                        E-mail：
+                    </dt>
+                    <dd>
+                        <a href="mailto:admin@bugback.com">admin@bugback.com</a>
+                    </dd>
+                </dl>
+            </div>
+            <div class="col-md-12 col-sm-3 Link">
+                <dl class="dl-horizontal">
+                    <dt>
+                        工作单位：
+                    </dt>
+                    <dd>
+                        北京汇杰世纪企业管理顾问有限公司
+                    </dd>
+                    <dt>
+                        职位：
+                    </dt>
+                    <dd>
+                        网站开发工程师
+                    </dd>
+                </dl>
+            </div>
+            <div class="col-md-12 col-sm-3 Link">
+                <dl class="dl-horizontal">
+                    <dt>
+                        设计框架：
+                    </dt>
+                    <dd>
+                        鸟人框架
+                    </dd>
+                    <dt>
+                        网址：
+                    </dt>
+                    <dd>
+                        <a href="http://bm.bugback.com/">bm.bugback.com</a>
+                    </dd>
+                </dl>
+            </div>
+        </div>
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
+    <div class="col-md-9 col-xs-12">
         <h2>Web Hosting</h2>
         <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+        <p>
+            <a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a>
+        </p>
     </div>
+
 </div>
