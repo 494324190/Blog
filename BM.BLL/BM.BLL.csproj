@@ -71,6 +71,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BM.DAL\BM.DAL.csproj">
+      <Project>{F7974A4A-EA0D-4619-BBB4-50CBA3FC4826}</Project>
+      <Name>BM.DAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BM.IBLL\BM.IBLL.csproj">
       <Project>{6d09ef91-e477-4adc-99e9-75716f4e5b62}</Project>
       <Name>BM.IBLL</Name>

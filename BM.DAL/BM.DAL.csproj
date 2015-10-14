@@ -54,13 +54,11 @@
   <ItemGroup>
     <Compile Include="BaseRepository.cs" />
     <Compile Include="CommonDAL.cs" />
+    <Compile Include="ErrorDAL.cs" />
+    <Compile Include="OperateLogDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BM.Common\BM.Common.csproj">
-      <Project>{bdad043f-2c70-4a3f-baeb-e4730dc64abb}</Project>
-      <Name>BM.Common</Name>
-    </ProjectReference>
     <ProjectReference Include="..\BM.IDAL\BM.IDAL.csproj">
       <Project>{f12abc72-9dda-4c89-bc07-937ec081f1a2}</Project>
       <Name>BM.IDAL</Name>

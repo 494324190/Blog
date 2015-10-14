@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using BM.Models;
+using BM.DAL;
 
 namespace BM.BLL
 {
@@ -10,9 +12,10 @@ namespace BM.BLL
     /// </summary>
     public class ErrorLogBLL
     {
-        public void Save(Models.tb_ErrorLog er)
+        private ErrorDAL errorDal = new ErrorDAL();
+        public void Save(tb_ErrorLog er)
         {
-            throw new NotImplementedException();
+            errorDal.Save(er);
         }
     }
 }
