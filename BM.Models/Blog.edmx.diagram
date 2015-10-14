@@ -5,12 +5,12 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="50ba5ce4d7a24f9cb9d6048acf876e08" Name="Diagram1">
-        <EntityTypeShape EntityType="BlogModel.tb_Article" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="BlogModel.tb_ArticleClassification" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="BlogModel.tb_ErrorLog" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BlogModel.tb_OperateLog" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BlogModel.tb_SensitiveWord" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
-        <AssociationConnector Association="BlogModel.FK_tb_Article_tb_ArticleClassification" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="BlogModel.tb_Article" Width="1.5" PointX="3" PointY="0.875" />
+        <EntityTypeShape EntityType="BlogModel.tb_ArticleClassification" Width="1.5" PointX="0.75" PointY="1.25" />
+        <EntityTypeShape EntityType="BlogModel.tb_ErrorLog" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="BlogModel.tb_OperateLog" Width="1.5" PointX="2.75" PointY="4.75" />
+        <EntityTypeShape EntityType="BlogModel.tb_SensitiveWord" Width="1.5" PointX="4.75" PointY="4.75" />
+        <AssociationConnector Association="BlogModel.FK_tb_Article_tb_ArticleClassification" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -15,8 +15,8 @@ namespace BM.Models
     public partial class tb_OperateLog
     {
         public string Id { get; set; }
-        public string OperateName { get; set; }
+        public int OperateType { get; set; }
         public string Page { get; set; }
-        public System.DateTime Date { get; set; }
+        public System.DateTime DateTime { get; set; }
     }
 }

@@ -26,8 +26,8 @@ namespace BM.Core
         public static void Container_Sys(ref UnityContainer container)
         {
             //错误日志注入
-            container.RegisterType<ICommonDAL<tb_error>, CommonDAL<tb_error>>();
-            container.RegisterType<ICommonBLL<tb_error>, CommonBLL<tb_error>>();
+            container.RegisterType<ICommonDAL<tb_ErrorLog>, CommonDAL<tb_ErrorLog>>();
+            container.RegisterType<ICommonBLL<tb_ErrorLog>, CommonBLL<tb_ErrorLog>>();
             //操作日志注入
             container.RegisterType<ICommonDAL<tb_OperateLog>, CommonDAL<tb_OperateLog>>();
             container.RegisterType<ICommonBLL<tb_OperateLog>, CommonBLL<tb_OperateLog>>();

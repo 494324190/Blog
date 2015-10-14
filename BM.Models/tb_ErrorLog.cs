@@ -18,6 +18,8 @@ namespace BM.Models
         public string ErrorName { get; set; }
         public string ErrorContent { get; set; }
         public string Page { get; set; }
-        public System.DateTime Data { get; set; }
+        public System.DateTime DateTime { get; set; }
+        public string Ip { get; set; }
+        public int OperateTyep { get; set; }
     }
 }
