@@ -57,6 +57,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -65,13 +66,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommonBLL.cs" />
+    <Compile Include="ErrorLogBLL.cs" />
+    <Compile Include="OperateLogBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BM.DAL\BM.DAL.csproj">
-      <Project>{f7974a4a-ea0d-4619-bbb4-50cba3fc4826}</Project>
-      <Name>BM.DAL</Name>
-    </ProjectReference>
     <ProjectReference Include="..\BM.IBLL\BM.IBLL.csproj">
       <Project>{6d09ef91-e477-4adc-99e9-75716f4e5b62}</Project>
       <Name>BM.IBLL</Name>

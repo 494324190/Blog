@@ -32,9 +32,9 @@ namespace BM.Common.StringOperate
             List<tb_SensitiveWord> list = cb.getList(null);
             for (int i = 0; i < list.Count; i++)
             {
-                if (wordStr.Contains(list[i].Sensitive))
+                if (wordStr.Contains(list[i].SensitiveWord))
                 {
-                    wordStr.Replace(list[i].Sensitive, "**");
+                    wordStr.Replace(list[i].SensitiveWord, "**");
                 }
             }
             return wordStr;
@@ -49,7 +49,7 @@ namespace BM.Common.StringOperate
             List<tb_SensitiveWord> list = cb.getList(null);
             for (int i = 0; i < list.Count; i++)
             {
-                if (wordStr.Contains(list[i].Sensitive))
+                if (wordStr.Contains(list[i].SensitiveWord))
                 {
                     i = list.Count;
                     return true;

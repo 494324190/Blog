@@ -89,6 +89,14 @@
     <Folder Include="obj\Release\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BM.BLL\BM.BLL.csproj">
+      <Project>{54ab27a1-434a-4ac5-9470-b25f6eeba659}</Project>
+      <Name>BM.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BM.IBLL\BM.IBLL.csproj">
+      <Project>{6d09ef91-e477-4adc-99e9-75716f4e5b62}</Project>
+      <Name>BM.IBLL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BM.Models\BM.Models.csproj">
       <Project>{78f74c6d-cdd9-4786-b426-fae7a2518dc2}</Project>
       <Name>BM.Models</Name>

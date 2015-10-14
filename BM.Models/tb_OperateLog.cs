@@ -18,5 +18,7 @@ namespace BM.Models
         public int OperateType { get; set; }
         public string Page { get; set; }
         public System.DateTime DateTime { get; set; }
+
+        public string Ip { get; set; }
     }
 }

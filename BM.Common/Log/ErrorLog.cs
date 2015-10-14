@@ -1,7 +1,7 @@
 ﻿using BM.Common.FileOperate;
 using System;
 using System.Web;
-using BM.;
+using BM.BLL;
 using BM.Models;
 
 namespace BM.Common.Log

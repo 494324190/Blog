@@ -1,12 +1,5 @@
 ﻿using BM.Common.FileOperate;
-using BM.IBLL;
-using BM;
-using Microsoft.Practices.Unity;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Web;
 using BM.BLL;
 using BM.Common.Web;
