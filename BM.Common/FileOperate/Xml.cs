@@ -25,8 +25,7 @@ namespace BM.Common.FileOperate
             List<string> sub = new List<string> { }; ;
             XmlDocument doc = new XmlDocument();
             doc.Load(path);
-            XmlElement rootElem = doc.DocumentElement;
-            XmlNodeList childNodes = rootElem.GetElementsByTagName(nodeName);
+            XmlNodeList childNodes = doc.SelectNodes("//"+nodeName);
             if (type == 1)
             {
                 for (int i = 0; i < childNodes.Count; i++)
@@ -38,7 +37,7 @@ namespace BM.Common.FileOperate
             {
                 for (int i = 0; i < childNodes.Count; i++)
                 {
-                    sub.Add(childNodes.Item(i).InnerText);
+                    sub.Add(((XmlElement)childNodes.Item(i)).GetElementsByTagName(typeName)[i].InnerText);
                 }
             }
 

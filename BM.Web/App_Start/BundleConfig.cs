@@ -23,9 +23,18 @@ namespace BM.Web
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/layer").Include(
+                "~/Scripts/layer/layer.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/Submit").Include(
+                "~/Scripts/BMSubmit.js"));
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+            bundles.Add(new StyleBundle("~/Content/layer").Include(
+                "~/Scripts/layer/skin/layer.css"));
         }
     }
 }
