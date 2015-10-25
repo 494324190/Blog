@@ -5,7 +5,7 @@
     Layout = "../Shared/_Layout.cshtml";
 }
 
-<h2>@ViewBag.Title。</h2>
+<h2>@ViewBag.Title</h2>
 <div class="row">
     <div class="col-md-12">
         <section id="login">
@@ -43,6 +43,6 @@
 <script>
     $('#login_btn').click(
         function () {
-            $.BMSubmit("/Account/Login", "loginForm","/");
+            $.BMSubmit("/Account/Login", "loginForm", "/", '登录失败，请确认用户名和密码！','');
         })
 </script>

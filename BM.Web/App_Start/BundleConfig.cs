@@ -22,9 +22,12 @@ namespace BM.Web
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
+            bundles.Add(new ScriptBundle("~/bundles/ckeditor").Include(
+                        "~/Scripts/ckeditor/ckeditor.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/layer").Include(
-                "~/Scripts/layer/layer.js"));
+                "~/Scripts/layer/layer.js",
+                "~/Scripts/layer/extend/layer.ext.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/Submit").Include(
                 "~/Scripts/BMSubmit.js"));
@@ -34,7 +37,10 @@ namespace BM.Web
                       "~/Content/site.css"));
 
             bundles.Add(new StyleBundle("~/Content/layer").Include(
-                "~/Scripts/layer/skin/layer.css"));
+                        "~/Scripts/layer/skin/layer.css"));
+
+            bundles.Add(new StyleBundle("~/Content/ckeditor").Include(
+                        "~/Scripts/skins/moono/editor.css"));
         }
     }
 }

@@ -34,9 +34,12 @@ namespace BM.Core
             //敏感词汇注入
             container.RegisterType<ICommonDAL<tb_SensitiveWord>, CommonDAL<tb_SensitiveWord>>();
             container.RegisterType<ICommonBLL<tb_SensitiveWord>, CommonBLL<tb_SensitiveWord>>();
-            //用户信息注入
-            //container.RegisterType<ICommonDAL<tb_Users>, CommonDAL<tb_Users>>();
-            //container.RegisterType<ICommonBLL<tb_Users>, CommonBLL<tb_Users>>();
+            //文章注入
+            container.RegisterType<ICommonDAL<tb_Article>, CommonDAL<tb_Article>>();
+            container.RegisterType<ICommonBLL<tb_Article>, CommonBLL<tb_Article>>();
+            //文章类别注入
+            container.RegisterType<ICommonDAL<tb_ArticleClassification>,CommonDAL<tb_ArticleClassification>>() ;
+            container.RegisterType<ICommonBLL<tb_ArticleClassification>, CommonBLL<tb_ArticleClassification>>();
         }
     }
 }
