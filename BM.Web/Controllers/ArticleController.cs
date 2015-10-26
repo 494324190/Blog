@@ -45,6 +45,7 @@ namespace BM.Web.Controllers
         /// <param name="article"></param>
         /// <returns></returns>
         [HttpPost]
+        [ValidateInput(false)]
         public int Save(tb_Article article)
         {
             try
