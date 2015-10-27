@@ -27,3 +27,17 @@ textarea {
         margin-top: 45px;
     }
 }
+.label_title {
+    text-align: left;
+}
+.label_content {
+    text-align: left;
+    margin-top: 10px;
+    font-weight: normal;
+}
+.label_tip {
+    text-align: left;
+    margin-top: 3px;
+    font-size: 12px;
+    color: #c0c0c0;
+}

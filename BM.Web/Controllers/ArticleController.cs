@@ -29,6 +29,37 @@ namespace BM.Web.Controllers
             return View();
         }
         /// <summary>
+        /// 列表
+        /// </summary>
+        /// <returns></returns>
+        public string ArticleList(int page)
+        {
+            try
+            {
+                List<tb_Article> articleList = ArticleBll.pageByWhere(p => p.Id != "",p=>p.Date, page, 10);
+                string html = "";
+                for (int i = 0; i < articleList.Count; i++)
+                {
+                    html = html + "<div class='form-group'>" +
+                            "<label class='col-md-12 control-label label_title'>" + articleList[i].Title +
+                            "</label>" +
+                            "</div>" +
+                            "<div class='form-group'>" +
+                            "<label class='col-md-12 control-label label_tip' >"+ articleList[i].Date+ "</label>" +
+                            "</div>" +
+                            "<div class='form-group' > " +
+                            "<label class='col-md-12 control-label label_content' > " + (articleList[i].Content.Count()>100? articleList[i].Content.Substring(0,100): articleList[i].Content) +
+                            "</label>" +
+                            "</div>";
+                }
+                return html;
+            }
+            catch (Exception e)
+            {
+                return "加载失败！";
+            }
+        }
+        /// <summary>
         /// 保存文章页面
         /// </summary>
         /// <returns></returns>

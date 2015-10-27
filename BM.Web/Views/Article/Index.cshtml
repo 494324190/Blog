@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .row {
+        margin-top: 23px;
+    }
+</style>
+<div class="row">
+    <div class="col-md-12">
+        <section id="List"></section>
+        <div>
+            <a href="javascript:void(0)" onclick="loadingMore()">加载更多 >></a>
+        </div>
+    </div>
+</div>
+<script>
+    var i = 0;
+    $.ajax({
+        url: '/Article/ArticleList',
+        data: { "page": i },
+        success: function (data) {
+            $('#List').html(data);
+        }
+    });
+    function loadingMore() {
+
+        $.ajax({
+            url: '/Article/ArticleList',
+            data: { "page": i },
+            success: function (data) {
+                if (data != "") {
+                    $('#List').html(data);
+                }
+            }
+        });
+    }
+</script>
