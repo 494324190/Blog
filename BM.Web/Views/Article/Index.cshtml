@@ -9,7 +9,12 @@
     }
 </style>
 <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-3">
+        <section id="menu">
+            
+        </section>
+    </div>
+    <div class="col-md-9">
         <section id="List"></section>
         <div>
             <a href="javascript:void(0)" onclick="loadingMore()">加载更多 >></a>
@@ -23,6 +28,12 @@
         data: { "page": i },
         success: function (data) {
             $('#List').html(data);
+        }
+    });
+    $.ajax({
+        url: '/Article/ArticleClass',
+        success:function(data) {
+            $('#menu').html(data);
         }
     });
     function loadingMore() {

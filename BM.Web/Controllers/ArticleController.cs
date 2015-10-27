@@ -113,5 +113,28 @@ namespace BM.Web.Controllers
                 throw e;
             }
         }
+
+        public string ArticleClass()
+        {
+            try
+            {
+                List<tb_ArticleClassification> articleClassificationsList =
+                    ArticleClassificationBll.getList(p => p.Id != "");
+                string html = "";
+                for (int i = 0; i < articleClassificationsList.Count; i++)
+                {
+                    html = html + "<ul class='ul_menu'>"+
+                            "<li>"+
+                            "<a href='javascript:void(0)'>"+articleClassificationsList[i].Name+"</a>"+
+                            "</li>"+
+                            "</ul>";
+                }
+                return html;
+            }
+            catch (Exception e)
+            {
+                return "加载出错！";
+            }
+        }
     }
 }

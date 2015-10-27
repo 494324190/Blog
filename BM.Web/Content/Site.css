@@ -41,3 +41,9 @@ textarea {
     font-size: 12px;
     color: #c0c0c0;
 }
+.ul_menu {
+    list-style: none;
+}
+.ul_menu > li {
+    margin-top:10px;
+}
