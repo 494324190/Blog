@@ -47,3 +47,14 @@ textarea {
 .ul_menu > li {
     margin-top:10px;
 }
+.ul_menu > li > a {
+    text-decoration:none;
+    color: #708090;
+}
+.ul_menu > li > a:hover {
+    text-decoration:none;
+    color: #0000cd;
+}
+.frame {
+    border-right: 1px solid  #c0c0c0 ;
+}

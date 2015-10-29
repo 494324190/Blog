@@ -18,6 +18,11 @@ namespace BM.Web
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+            routes.MapRoute(
+                name: "Article",
+                url: "{controller}/{action}/{page}/{articleClassificationId}",
+                defaults: new { controller = "Article", action = "Index", page = UrlParameter.Optional, articleClassificationId = UrlParameter.Optional }
+            );
         }
     }
 }

@@ -32,17 +32,26 @@ namespace BM.Web.Controllers
         /// 列表
         /// </summary>
         /// <returns></returns>
-        public string ArticleList(int page)
+        public string ArticleList(int page,string articleClassificationId)
         {
             try
             {
-                List<tb_Article> articleList = ArticleBll.pageByWhere(p => p.Id != "",p=>p.Date, page, 10);
+                Func<tb_Article, bool> where = null;
+                if (String.IsNullOrEmpty(articleClassificationId) )
+                {
+                    where = p => p.Id != "";
+                }
+                else
+                {
+                    where = p => p.ClassificationId == articleClassificationId;
+                }
+                List<tb_Article> articleList = ArticleBll.pageByWhere(where,p=>p.Date, page, 10);
                 string html = "";
                 for (int i = 0; i < articleList.Count; i++)
                 {
                     html = html + "<div class='form-group'>" +
-                            "<label class='col-md-12 control-label label_title'>" + articleList[i].Title +
-                            "</label>" +
+                            "<h2 class='col-md-12'>" + articleList[i].Title +
+                            "</h2>" +
                             "</div>" +
                             "<div class='form-group'>" +
                             "<label class='col-md-12 control-label label_tip' >"+ articleList[i].Date+ "</label>" +
@@ -125,7 +134,7 @@ namespace BM.Web.Controllers
                 {
                     html = html + "<ul class='ul_menu'>"+
                             "<li>"+
-                            "<a href='javascript:void(0)'>"+articleClassificationsList[i].Name+"</a>"+
+                            "<a href='/Article/Index/0/" + articleClassificationsList[i].Id+ "'>" + articleClassificationsList[i].Name+"</a>"+
                             "</li>"+
                             "</ul>";
                 }
