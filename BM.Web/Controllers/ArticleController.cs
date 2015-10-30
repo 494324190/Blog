@@ -50,8 +50,8 @@ namespace BM.Web.Controllers
                 for (int i = 0; i < articleList.Count; i++)
                 {
                     html = html + "<div class='form-group'>" +
-                            "<h2 class='col-md-12'>" + articleList[i].Title +
-                            "</h2>" +
+                            "<h2 class='col-md-12'><a href='/Article/Detailed/"+articleList[i].Id+"'>" + articleList[i].Title +
+                            "</a></h2>" +
                             "</div>" +
                             "<div class='form-group'>" +
                             "<label class='col-md-12 control-label label_tip' >"+ articleList[i].Date+ "</label>" +
@@ -144,6 +144,13 @@ namespace BM.Web.Controllers
             {
                 return "加载出错！";
             }
+        }
+
+        public ActionResult Detailed(string id)
+        {
+            tb_Article article = new tb_Article();
+            article = ArticleBll.getModel(p => p.Id == id);
+            return View(article);
         }
     }
 }

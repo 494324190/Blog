@@ -1,0 +1,23 @@
+﻿@model BM.Models.tb_Article
+@{
+    ViewBag.Title = "Detailed";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .row {
+        margin-top: 23px;
+    }
+</style>
+<div class="row">
+    <div class="col-md-12 col-sm-12">
+        <section id="menu">
+            <h2>@Html.DisplayFor(model => model.Title)</h2>
+            <div>
+                @Html.Raw(Model.Content)
+            </div>
+        </section>
+    </div>
+</div>
+
+
+
