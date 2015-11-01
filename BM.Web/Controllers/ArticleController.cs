@@ -8,6 +8,7 @@ using BM.BLL;
 using BM.IBLL;
 using BM.Models;
 using Microsoft.Practices.Unity;
+using BM.Web.Filter;
 
 namespace BM.Web.Controllers
 {
@@ -72,6 +73,7 @@ namespace BM.Web.Controllers
         /// 保存文章页面
         /// </summary>
         /// <returns></returns>
+        [LoginFilter]
         public ActionResult Save()
         {
             Func<tb_ArticleClassification, bool> whereFunc = p => p.Id != "";

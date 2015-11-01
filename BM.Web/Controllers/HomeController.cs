@@ -61,7 +61,7 @@ namespace BM.Web.Controllers
             }
             catch (Exception e)
             {
-                return "加载失败！";
+                return "加载失败！错误信息："+e.Message;
             }
         }
     }

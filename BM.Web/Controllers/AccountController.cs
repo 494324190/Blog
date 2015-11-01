@@ -34,7 +34,7 @@ namespace BM.Web.Controllers
                 if (Xml.Read(path, "Login", 2, "user")[0] == LoginName &&
                     Xml.Read(path, "Login", 2, "password")[0] == Encryption.EncryptDES(Password, "zg753321"))
                 {
-                    Session["LoginState"] = 1; 
+                    Session["LoginState"] = Encryption.EncryptDES("8491hgj", "87W5Kj^nU2@$6"); 
                     return 1;
                 }
                 else
