@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using BM.BLL;
+using BM.Common.StringOperate;
 using BM.IBLL;
 using BM.Models;
 using Microsoft.Practices.Unity;
@@ -51,14 +52,14 @@ namespace BM.Web.Controllers
                 for (int i = 0; i < articleList.Count; i++)
                 {
                     html = html + "<div class='form-group'>" +
-                            "<h2 class='col-md-12'><a href='/Article/Detailed/"+articleList[i].Id+"'>" + articleList[i].Title +
-                            "</a></h2>" +
+                            "<label class='col-md-12 label_title'><a href='/Article/Detailed/" + articleList[i].Id+"'>" + articleList[i].Title +
+                            "</a></label>" +
                             "</div>" +
                             "<div class='form-group'>" +
                             "<label class='col-md-12 control-label label_tip' >"+ articleList[i].Date+ "</label>" +
                             "</div>" +
                             "<div class='form-group' > " +
-                            "<label class='col-md-12 control-label label_content' > " + (articleList[i].Content.Count()>100? articleList[i].Content.Substring(0,100): articleList[i].Content) +
+                            "<label class='col-md-12 control-label label_content' > " + (articleList[i].Content.Count()>500? HtmlOperate.ClearHtml(articleList[i].Content.Substring(0,500)): HtmlOperate.ClearHtml(articleList[i].Content) )+
                             "</label>" +
                             "</div>";
                 }
@@ -153,6 +154,20 @@ namespace BM.Web.Controllers
             tb_Article article = new tb_Article();
             article = ArticleBll.getModel(p => p.Id == id);
             return View(article);
+        }
+        [HttpPost]
+        public ActionResult UploadImage(HttpPostedFileBase upload)
+        {
+            var fileName = System.IO.Path.GetFileName(upload.FileName);
+            var filePhysicalPath = Server.MapPath("~/upload/" + fileName);//我把它保存在网站根目录的 upload 文件夹
+
+            upload.SaveAs(filePhysicalPath);
+
+            var url = "/upload/" + fileName;
+            var ckEditorFuncNum = System.Web.HttpContext.Current.Request["CKEditorFuncNum"];
+
+            //上传成功后，我们还需要通过以下的一个脚本把图片返回到第一个tab选项
+            return Content("<script>window.parent.CKEDITOR.tools.callFunction(" + ckEditorFuncNum + ", \"" + url + "\");</script>");
         }
     }
 }
