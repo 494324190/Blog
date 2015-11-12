@@ -11,7 +11,7 @@
           </Key>
           <Property Name="Id" Type="nvarchar" MaxLength="36" Nullable="false" />
           <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Content" Type="nvarchar" MaxLength="4000" Nullable="false" />
+          <Property Name="Content" Type="ntext" Nullable="false" />
           <Property Name="Date" Type="datetime" Nullable="false" />
           <Property Name="ClassificationId" Type="nvarchar" MaxLength="36" Nullable="false" />
         </EntityType>
@@ -95,7 +95,7 @@
           </Key>
           <Property Name="Id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="true" />
           <Property Name="Title" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Content" Type="String" Nullable="false" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="Content" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ClassificationId" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="tb_ArticleClassification" Relationship="BlogModel.FK_tb_Article_tb_ArticleClassification" FromRole="tb_Article" ToRole="tb_ArticleClassification" />
