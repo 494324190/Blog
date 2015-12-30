@@ -12,6 +12,8 @@ namespace BM.Models
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class BlogEntities : DbContext
     {
@@ -27,8 +29,15 @@ namespace BM.Models
     
         public virtual DbSet<tb_Article> tb_Article { get; set; }
         public virtual DbSet<tb_ArticleClassification> tb_ArticleClassification { get; set; }
+        public virtual DbSet<tb_Email> tb_Email { get; set; }
         public virtual DbSet<tb_ErrorLog> tb_ErrorLog { get; set; }
         public virtual DbSet<tb_OperateLog> tb_OperateLog { get; set; }
+        public virtual DbSet<tb_SendEmail> tb_SendEmail { get; set; }
         public virtual DbSet<tb_SensitiveWord> tb_SensitiveWord { get; set; }
+    
+        public virtual int getCatalog()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("getCatalog");
+        }
     }
 }

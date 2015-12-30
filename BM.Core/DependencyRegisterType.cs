@@ -40,6 +40,10 @@ namespace BM.Core
             //文章类别注入
             container.RegisterType<ICommonDAL<tb_ArticleClassification>,CommonDAL<tb_ArticleClassification>>() ;
             container.RegisterType<ICommonBLL<tb_ArticleClassification>, CommonBLL<tb_ArticleClassification>>();
+            //邮箱注入
+            container.RegisterType<ICommonDAL<tb_Email>, CommonDAL<tb_Email>>();
+            container.RegisterType<ICommonBLL<tb_Email>, CommonBLL<tb_Email>>();
+
         }
     }
 }

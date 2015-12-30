@@ -1,25 +1,28 @@
-﻿<form class="navbar-right">
-    @if (Session["LoginState"] != null)
-    {
-        <ul class="nav navbar-nav navbar-right">
-            <li>@Html.ActionLink("发文章","Save","Article")</li>
+﻿@model BM.Models.tb_Email
+<form class="navbar-right" id="emailSubscription">
+    <ul class="nav navbar-nav navbar-right">
+        <li>@Html.TextBoxFor(model => model.Email, new { @class = "form-control", @placeholder = "填写您的Email订阅博客", @style = "margin-top:10px;" })</li>
+        <li><button type="button" class="btn btn-block " onclick="subscription()"  style="margin-top:10px;margin-left:5px;" id="btn_submit">订阅</button></li>
+        @if (Session["LoginState"] != null)
+        {
+
+            <li>@Html.ActionLink("发文章", "Save", "Article")</li>
             <li><a href="javascript:loginOut()">注销</a></li>
-        </ul>
-    }
-    else
-    {
-        <ul class="nav navbar-nav navbar-right">
+
+        }
+        else
+        {
             <li><a href="/Account/Login">登录</a></li>
-        </ul>
-    }
+        }
+    </ul>
 </form>
 <script>
     function loginOut() {
-       
+
         $.ajax({
             url: '/Account/LoginOff',
             cache: false,
-            type:'post',
+            type: 'post',
             success: function (data) {
                 location.href = "/";
             },
@@ -27,5 +30,8 @@
                 alert("退出错误！");
             }
         });
+    }
+    function subscription() {
+        $.BMSubmit("/Account/Subscription", "emailSubscription", "", "订阅失败！", "订阅成功！");
     }
 </script>

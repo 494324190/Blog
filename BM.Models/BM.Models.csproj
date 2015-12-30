@@ -72,10 +72,16 @@
     <Compile Include="tb_ArticleClassification.cs">
       <DependentUpon>Blog.tt</DependentUpon>
     </Compile>
+    <Compile Include="tb_Email.cs">
+      <DependentUpon>Blog.tt</DependentUpon>
+    </Compile>
     <Compile Include="tb_ErrorLog.cs">
       <DependentUpon>Blog.tt</DependentUpon>
     </Compile>
     <Compile Include="tb_OperateLog.cs">
+      <DependentUpon>Blog.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tb_SendEmail.cs">
       <DependentUpon>Blog.tt</DependentUpon>
     </Compile>
     <Compile Include="tb_SensitiveWord.cs">
