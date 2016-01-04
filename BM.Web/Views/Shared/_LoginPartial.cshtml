@@ -1,8 +1,10 @@
-﻿@model BM.Models.tb_Email
+﻿
 <form class="navbar-right" id="emailSubscription">
     <ul class="nav navbar-nav navbar-right">
-        <li>@Html.TextBoxFor(model => model.Email, new { @class = "form-control", @placeholder = "填写您的Email订阅博客", @style = "margin-top:10px;" })</li>
-        <li><button type="button" class="btn btn-block " onclick="subscription()"  style="margin-top:10px;margin-left:5px;" id="btn_submit">订阅</button></li>
+        <li>
+            <input class="form-control" name="email" placeholder="填写您的Email订阅博客" , style="margin-top:10px;" />
+        </li>
+        <li><button type="button" class="btn btn-block " onclick="subscription()" style="margin-top:10px;margin-left:5px;" id="btn_submit">订阅</button></li>
         @if (Session["LoginState"] != null)
         {
 

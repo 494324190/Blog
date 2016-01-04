@@ -30,7 +30,6 @@ namespace BM.DAL
             }
             catch (Exception e)
             {
-                return null;
                 throw e;
             }
         }
@@ -48,7 +47,6 @@ namespace BM.DAL
             }
             catch (Exception e)
             {
-                return -1;
                 throw e;
             }
         }
@@ -65,7 +63,6 @@ namespace BM.DAL
             }
             catch (Exception e)
             {
-                return 0;
                 throw e;
             }
         }
@@ -82,7 +79,6 @@ namespace BM.DAL
             }
             catch (Exception e)
             {
-                return 0;
                 throw e;
             }
         }
@@ -99,7 +95,6 @@ namespace BM.DAL
             }
             catch (Exception e)
             {
-                return null;
                 throw e;
             }
         }

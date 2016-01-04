@@ -42,7 +42,7 @@ namespace BM.Web.Controllers
         {
             try
             {
-                List<tb_Article> articleList = ArticleBll.pageByWhere(p=>p.Id!="", p => p.Date, 0, 20);
+                List<tb_Article> articleList = ArticleBll.pageByWhere(p=>p.Id!="", p => p.Date, 1, 20);
                 string html = "";
                 for (int i = 0; i < articleList.Count; i++)
                 {

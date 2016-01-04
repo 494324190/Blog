@@ -90,7 +90,6 @@ namespace BM.BLL
             }
             catch(Exception e)
             {
-                return false;
                 throw e;
             }
         }
