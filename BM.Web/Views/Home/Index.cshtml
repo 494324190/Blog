@@ -1,91 +1,30 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "主页";
 }
-<style>
-    .dl-horizontal dd {
-        margin-left: 0px;
+@model IEnumerable<BM.Models.tb_Article>
+<ul class="bloglist">
+    @foreach (var item in Model)
+    {
+        <li>
+            <div class="arrow_box">
+                <div class="ti"></div>
+                <!--三角形-->
+                <div class="ci"></div>
+                <!--圆形-->
+                <h2 class="title"><a href="/Article/Detailed/@item.Id" target="_blank">@item.Title</a></h2>
+                <ul class="textinfo">
+                    <li>
+                        <!--<a href="/"><img src="images/s1.jpg"></a>-->
+                        <p>@(item.Content.Length>100?item.Content.Substring(0,100):item.Content)</p>
+                    </li>
+                </ul>
+                <ul class="details">
+                    <li class="likes"><a href="#">10</a></li>
+                    <li class="comments"><a href="#">34</a></li>
+                    <li class="icon-time"><a href="#">@item.Date.ToString("yyyy-MM-dd")</a></li>
+                </ul>
+            </div>
+            <!--arrow_box end-->
+        </li>
     }
-
-    .dl-horizontal dt {
-        width: auto;
-    }
-</style>
-<div class="row">
-    <div class="col-md-3 hidden-xs">
-        <div class="row">
-            <div class="col-md-12 col-sm-3 ">
-                <img class="img-circle img-responsive" src="../../Img/tx.jpg" />
-            </div>
-            <div class="col-md-12 col-sm-3 Link">
-                <dl class="dl-horizontal">
-                    <dt>
-                        姓名：
-                    </dt>
-                    <dd>
-                        Thomas Zhu
-                    </dd>
-                    <dt>
-                        电话：
-                    </dt>
-                    <dd>
-                        185******45
-                    </dd>
-                    <dt>
-                        E-mail：
-                    </dt>
-                    <dd>
-                        <a href="mailto:admin@bugback.com">admin@bugback.com</a>
-                    </dd>
-                </dl>
-            </div>
-            <div class="col-md-12 col-sm-3 Link">
-                <dl class="dl-horizontal">
-                    <dt>
-                        工作单位：
-                    </dt>
-                    <dd>
-                        北京汇杰世纪企业管理顾问有限公司
-                    </dd>
-                    <dt>
-                        职位：
-                    </dt>
-                    <dd>
-                        网站开发工程师
-                    </dd>
-                </dl>
-            </div>
-            <div class="col-md-12 col-sm-3 Link">
-                <dl class="dl-horizontal">
-                    <dt>
-                        设计框架：
-                    </dt>
-                    <dd>
-                        鸟人框架
-                    </dd>
-                    <dt>
-                        网址：
-                    </dt>
-                    <dd>
-                        <a href="http://bm.bugback.com/">http://bm.bugback.com/</a>
-                    </dd>
-                </dl>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-9 col-xs-12" id="List">
-
-    </div>
-
-</div>
-<div style="position:fixed;top:100px;right:10px;text-align:center;background-color:white" class="hidden-xs">
-    <img src="~/Img/wx.jpg" class="img-responsive" style="width:150px;height:150px;margin:0 auto"/>
-    关注微信公众号
-</div>
-<script>
-    $.ajax({
-        url: '/Home/ArticleList',
-        success: function (data) {
-            $('#List').html(data);
-        }
-    });
-</script>
+</ul>

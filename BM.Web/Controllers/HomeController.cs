@@ -18,7 +18,8 @@ namespace BM.Web.Controllers
         public ICommonBLL<tb_ArticleClassification> ArticleClassificationBll { get; set; }
         public ActionResult Index()
         {
-            return View();
+            List<tb_Article> articleList = ArticleBll.pageByWhere(p => p.Id != "", p => p.Date, 1, 10);
+            return View(articleList);
         }
 
         public ActionResult About()

@@ -162,15 +162,20 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\HtmlHelper_Extend .cs" />
     <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Config.xml" />
+    <Content Include="Content\animation.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\lrtk.css" />
+    <Content Include="Content\styles.css" />
+    <Content Include="Content\view.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -182,6 +187,34 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Properties\PublishProfiles\blog.pubxml" />
+    <Content Include="Img\artwork.png" />
+    <Content Include="Img\k01.jpg" />
+    <Content Include="Img\k02.jpg" />
+    <Content Include="Img\k03.jpg" />
+    <Content Include="Img\post1.jpg" />
+    <Content Include="Img\quote-bg.png" />
+    <Content Include="Img\s1.jpg" />
+    <Content Include="Img\s2.jpg" />
+    <Content Include="Img\s3.jpg" />
+    <Content Include="Img\s4.jpg" />
+    <Content Include="Img\s5.jpg" />
+    <Content Include="Img\s6.jpg" />
+    <Content Include="Img\s7.jpg" />
+    <Content Include="Img\s8.jpg" />
+    <Content Include="Img\upload_img\01.jpg" />
+    <Content Include="Img\upload_img\02.jpg" />
+    <Content Include="Img\upload_img\03.jpg" />
+    <Content Include="Img\upload_img\04.jpg" />
+    <Content Include="Img\upload_img\05.jpg" />
+    <Content Include="Img\upload_img\06.jpg" />
+    <Content Include="Img\upload_img\07.jpg" />
+    <Content Include="Img\upload_img\08.jpg" />
+    <Content Include="Img\upload_img\09.jpg" />
+    <Content Include="Img\art.jpg" />
+    <Content Include="Img\icons.png" />
+    <Content Include="Img\vinyl.png" />
+    <Content Include="Img\zj.jpg" />
+    <Content Include="Music\wwcdaq.mp3" />
     <Content Include="Img\wx.jpg" />
     <Content Include="Scripts\ckeditor\CHANGES.md" />
     <Content Include="Scripts\ckeditor\LICENSE.md" />
@@ -578,10 +611,12 @@
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\js.js" />
     <Content Include="Scripts\layer\extend\layer.ext.js" />
     <Content Include="Scripts\layer\layer.js" />
     <Content Include="Scripts\layer\skin\default\icon-ext.png" />
@@ -592,8 +627,10 @@
     <Content Include="Scripts\layer\skin\layer.css" />
     <Content Include="Scripts\layer\skin\layer.ext.css" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\modernizr.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\silder.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -617,6 +654,7 @@
     <Content Include="Views\Article\Index.cshtml" />
     <Content Include="Views\Article\Detailed.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\_PartialAudio.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

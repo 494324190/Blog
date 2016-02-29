@@ -26,49 +26,22 @@ namespace BM.Web.Controllers
         /// 文章列表
         /// </summary>
         /// <returns></returns>
-        public ActionResult Index()
+        public ActionResult Index(string id, int? page)
         {
-            return View();
-        }
-        /// <summary>
-        /// 列表
-        /// </summary>
-        /// <returns></returns>
-        public string ArticleList(int page,string articleClassificationId)
-        {
-            try
+            List<tb_Article> articleList = new List<tb_Article>();
+            if (!String.IsNullOrEmpty(id) && page!=null)
             {
-                Func<tb_Article, bool> where = null;
-                if (String.IsNullOrEmpty(articleClassificationId) )
-                {
-                    where = p => p.Id != "";
-                }
-                else
-                {
-                    where = p => p.ClassificationId == articleClassificationId;
-                }
-                List<tb_Article> articleList = ArticleBll.pageByWhere(where,p=>p.Date, page, 10);
-                string html = "";
-                for (int i = 0; i < articleList.Count; i++)
-                {
-                    html = html + "<div class='form-group'>" +
-                            "<label class='col-md-12 label_title'><a href='/Article/Detailed/" + articleList[i].Id+"'>" + articleList[i].Title +
-                            "</a></label>" +
-                            "</div>" +
-                            "<div class='form-group'>" +
-                            "<label class='col-md-12 control-label label_tip' >"+ articleList[i].Date+ "</label>" +
-                            "</div>" +
-                            "<div class='form-group' > " +
-                            "<label class='col-md-12 control-label label_content' > " + (articleList[i].Content.Count()>500? HtmlOperate.ClearHtml(articleList[i].Content.Substring(0,500)): HtmlOperate.ClearHtml(articleList[i].Content) )+
-                            "</label>" +
-                            "</div>";
-                }
-                return html;
+                Func<tb_Article, bool> where = p => p.Id == id;
+                articleList = ArticleBll.pageByWhere(where, p => p.Date, int.Parse(page.ToString()), 10);
             }
-            catch (Exception e)
+            else
             {
-                return "加载失败！";
+                page = 1;
+                articleList = ArticleBll.pageByWhere(p => p.Id != "", p => p.Date, int.Parse(page.ToString()), 10);
             }
+            int pageCount = articleList.Count() % 10 == 0 ? articleList.Count() / 10 : (articleList.Count() / 10) + 1;
+            ViewData["pageCount"] = pageCount;
+            return View(articleList);
         }
         /// <summary>
         /// 保存文章页面
@@ -135,10 +108,10 @@ namespace BM.Web.Controllers
                 string html = "";
                 for (int i = 0; i < articleClassificationsList.Count; i++)
                 {
-                    html = html + "<ul class='ul_menu'>"+
-                            "<li>"+
-                            "<a href='/Article/Index/0/" + articleClassificationsList[i].Id+ "'>" + articleClassificationsList[i].Name+"</a>"+
-                            "</li>"+
+                    html = html + "<ul class='ul_menu'>" +
+                            "<li>" +
+                            "<a href='/Article/Index/0/" + articleClassificationsList[i].Id + "'>" + articleClassificationsList[i].Name + "</a>" +
+                            "</li>" +
                             "</ul>";
                 }
                 return html;

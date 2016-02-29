@@ -3,53 +3,37 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<style>
-    .row {
-        margin-top: 23px;
+@model IEnumerable<BM.Models.tb_Article>
+<ul class="bloglist">
+    @foreach (var item in Model)
+    {
+        <li>
+            <div class="arrow_box">
+                <div class="ti"></div>
+                <!--三角形-->
+                <div class="ci"></div>
+                <!--圆形-->
+                <h2 class="title"><a href="/Article/Detailed/@item.Id" target="_blank">@item.Title</a></h2>
+                <ul class="textinfo">
+                    <li>
+                        <!--<a href="/"><img src="images/s1.jpg"></a>-->
+                        <p>@(item.Content.Length > 100 ? item.Content.Substring(0, 100) : item.Content)</p>
+                    </li>
+                </ul>
+                <ul class="details">
+                    <li class="likes"><a href="#">10</a></li>
+                    <li class="comments"><a href="#">34</a></li>
+                    <li class="icon-time"><a href="#">@item.Date.ToString("yyyy-MM-dd")</a></li>
+                </ul>
+            </div>
+           
+            <!--arrow_box end-->
+        </li>
     }
-</style>
-<div class="row">
-    <div class="col-md-2 col-sm-3">
-        <section id="menu" class="frame">
-            
-        </section>
-    </div>
-    <div class="col-md-10 col-sm-9">
-        <section id="List"></section>
-        <div>
-            <a href="javascript:void(0)" onclick="loadingMore()">加载更多 >></a>
-        </div>
-    </div>
-</div>
-<script>
-    var i = 1;
-    $.ajax({
-        url: '/Article/ArticleList',
-        data: { "page": i, "articleClassificationId": getMvcUrlPara(4) },
-        success: function (data) {
-            $('#List').html(data);
-        }
-    });
-    $.ajax({
-        url: '/Article/ArticleClass',
-        success:function(data) {
-            $('#menu').html(data);
-        }
-    });
-    function loadingMore() {
-        $.ajax({
-            url: '/Article/ArticleList',
-            data: { "page": i ,"articleClassificationId":getMvcUrlPara(4)},
-            success: function (data) {
-                if (data != "") {
-                    $('#List').html(data);
-                }
-            }
-        });
-    }
-    function getMvcUrlPara(index) {
-        var pathname = window.location.pathname;
-        var para = pathname.split('/')[index];
-        return para;
-    }
-</script>
+    <li>
+        @Html.HtmlHelper_Page(
+            int.Parse(ViewData["pageCount"].ToString()), 
+            int.Parse(Request.RequestContext.RouteData.Values["page"] == null ? "1".ToString() : Request.RequestContext.RouteData.Values["page"].ToString()),
+            "/Article/Index/'"+Request.RequestContext.RouteData.Values["page"])
+    </li>
+</ul>
