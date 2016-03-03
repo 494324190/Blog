@@ -15,7 +15,7 @@
     <script type="text/javascript" src="~/Scripts/js.js"></script>
     @if (Request.RawUrl != "/Home/Index" && Request.RawUrl != "/")
     {
-        <link href="~/Content/view.css" rel="stylesheet" />
+    <link href="~/Content/view.css" rel="stylesheet" />
     }
     <!-- 返回顶部调用 end-->
     <!--[if lt IE 9]>
@@ -40,26 +40,26 @@
         @if (Request.RawUrl == "/Home/Index" || Request.RawUrl == "/")
         {
 
-            <div class="info">
-                <figure>
-                    <img src="Img/art.jpg" alt="Panama Hat">
-                    <figcaption><strong>渡人如渡己，渡已，亦是渡</strong> 当我们被误解时，会花很多时间去辩白。 但没有用，没人愿意听，大家习惯按自己的所闻、理解做出判别，每个人其实都很固执。与其努力且痛苦的试图扭转别人的评判，不如默默承受，给大家多一点时间和空间去了解。而我们省下辩解的功夫，去实现自身更久远的人生价值。其实，渡人如渡己，渡已，亦是渡人。</figcaption>
-                </figure>
-                <div class="card">
-                    <h1>我的名片</h1>
-                    <p>网名： Thomas Zhu | 朱厚熜</p>
-                    <p>职业：.net开发工程师、UWP开发工程师</p>
-                    <p>电话：185******45</p>
-                    <p>Email：admin@bugback.com</p>
-                    <ul class="linkmore">
-                        <li><a href="/" class="talk" title="给我留言"></a></li>
-                        <li><a href="/" class="address" title="联系地址"></a></li>
-                        <li><a href="/" class="email" title="给我写信"></a></li>
-                        <li><a href="/" class="photos" title="生活照片"></a></li>
-                        <li><a href="/" class="heart" title="关注我"></a></li>
-                    </ul>
-                </div>
+        <div class="info">
+            <figure>
+                <img src="Img/art.jpg" alt="Panama Hat">
+                <figcaption><strong>渡人如渡己，渡已，亦是渡</strong> 当我们被误解时，会花很多时间去辩白。 但没有用，没人愿意听，大家习惯按自己的所闻、理解做出判别，每个人其实都很固执。与其努力且痛苦的试图扭转别人的评判，不如默默承受，给大家多一点时间和空间去了解。而我们省下辩解的功夫，去实现自身更久远的人生价值。其实，渡人如渡己，渡已，亦是渡人。</figcaption>
+            </figure>
+            <div class="card">
+                <h1>我的名片</h1>
+                <p>网名： Thomas Zhu | 朱厚熜</p>
+                <p>职业：.net开发工程师、UWP开发工程师</p>
+                <p>电话：185******45</p>
+                <p>Email：admin@bugback.com</p>
+                <ul class="linkmore">
+                    <li><a href="/" class="talk" title="给我留言"></a></li>
+                    <li><a href="/" class="address" title="联系地址"></a></li>
+                    <li><a href="/" class="email" title="给我写信"></a></li>
+                    <li><a href="/" class="photos" title="生活照片"></a></li>
+                    <li><a href="/" class="heart" title="关注我"></a></li>
+                </ul>
             </div>
+        </div>
 
         }
         <!--info end-->
@@ -70,20 +70,20 @@
             <aside>
                 @if (Request.RawUrl != "/Home/Index" && Request.RawUrl != "/")
                 {
-                    <div class="search">
-                        <form class="searchform" method="get" action="#">
-                            <input type="text" name="s" value="Search" onfocus="this.value=''" onblur="this.value='Search'">
-                        </form>
-                    </div>
-                    <div class="sunnav">
-                        <ul>
-                            <li><a href="/newshtml5/" target="_blank" title="HTML5 / CSS3">HTML5 / CSS3</a></li>
-                            <li><a href="/jstt/" target="_blank" title="WP / UWP">WP / UWP</a></li>
-                            <li><a href="/news/s/" target="_blank" title="框架">框架</a></li>
-                            <li><a href="/web/" target="_blank" title="数据库">数据库</a></li>
-                            <li><a href="/web/" target="_blank" title="杂文">杂文</a></li>
-                        </ul>
-                    </div>
+                <div class="search">
+                    <form class="searchform" method="get" action="#">
+                        <input type="text" name="s" value="Search" onfocus="this.value=''" onblur="this.value='Search'">
+                    </form>
+                </div>
+                <div class="sunnav">
+                    <ul>
+                        <li><a href="/newshtml5/" target="_blank" title="HTML5 / CSS3">HTML5 / CSS3</a></li>
+                        <li><a href="/jstt/" target="_blank" title="WP / UWP">WP / UWP</a></li>
+                        <li><a href="/news/s/" target="_blank" title="框架">框架</a></li>
+                        <li><a href="/web/" target="_blank" title="数据库">数据库</a></li>
+                        <li><a href="/web/" target="_blank" title="杂文">杂文</a></li>
+                    </ul>
+                </div>
                 }
                 <div class="tuijian">
                     <h2>推荐文章</h2>
@@ -140,14 +140,14 @@
 
                 @if (Request.RawUrl == "/Home/Index" || Request.RawUrl == "/")
                 {
-                    <div class="search">
-                        <form class="searchform" method="get" action="#">
-                            <input type="text" name="s" value="Search" onfocus="this.value=''" onblur="this.value='Search'">
-                        </form>
-                    </div>
-                    <div class="viny">
-                        @Html.Partial("../Shared/_PartialAudio");
-                    </div>
+                <div class="search">
+                    <form class="searchform" method="get" action="#">
+                        <input type="text" name="s" value="Search" onfocus="this.value=''" onblur="this.value='Search'">
+                    </form>
+                </div>
+                <div class="viny">
+                    @Html.Partial("../Shared/_PartialAudio");
+                </div>
                 }
 
             </aside>
@@ -211,7 +211,13 @@
             </section>
         </div>
         <div class="footer-bottom">
-            <p>Copyright 2013 Design by <a href="http://www.bugback.com">BugBack</a></p>
+            <p>
+                Copyright 2013 Design by <a href="http://www.bugback.com">BugBack</a>
+                <script src="projects.js"></script>
+                <script type="text/javascript">
+                    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : "http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1257753800'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol +
+"s95.cnzz.com/z_stat.php%3Fid%3D1257753800%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+            </p>
         </div>
     </footer>
     <!-- jQuery仿腾讯回顶部和建议 代码开始 -->
