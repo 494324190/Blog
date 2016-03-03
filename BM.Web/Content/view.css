@@ -18,6 +18,7 @@ _width:expression((document.documentElement.clientWidth||document.body.clientWid
 .sunnav li:first-child { background: #1A8A8A; }
 .sunnav li:nth-child(2) { background: #E7A82B; }
 .sunnav li:nth-child(3) { background: #E72B2B; }
+.sunnav li:nth-child(4) { background: #E75A2B; }
 .sunnav li:last-child { background: #085A5A; }
 .sunnav li a { color: #fff; opacity: 0.8 }
 .sunnav li a:hover { padding-left: 20px; opacity: 1 }

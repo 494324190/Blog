@@ -99,29 +99,6 @@ namespace BM.Web.Controllers
             }
         }
 
-        public string ArticleClass()
-        {
-            try
-            {
-                List<tb_ArticleClassification> articleClassificationsList =
-                    ArticleClassificationBll.getList(p => p.Id != "");
-                string html = "";
-                for (int i = 0; i < articleClassificationsList.Count; i++)
-                {
-                    html = html + "<ul class='ul_menu'>" +
-                            "<li>" +
-                            "<a href='/Article/Index/0/" + articleClassificationsList[i].Id + "'>" + articleClassificationsList[i].Name + "</a>" +
-                            "</li>" +
-                            "</ul>";
-                }
-                return html;
-            }
-            catch (Exception e)
-            {
-                return "加载出错！";
-            }
-        }
-
         public ActionResult Detailed(string id)
         {
             tb_Article article = new tb_Article();

@@ -14,7 +14,6 @@ namespace BM.Models
     
     public partial class tb_ArticleClassification
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public tb_ArticleClassification()
         {
             this.tb_Article = new HashSet<tb_Article>();
@@ -23,7 +22,6 @@ namespace BM.Models
         public string Id { get; set; }
         public string Name { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tb_Article> tb_Article { get; set; }
     }
 }

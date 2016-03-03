@@ -42,7 +42,6 @@ namespace BM.BLL
             }
             catch (Exception e)
             {
-                return null;
                 throw e;
             }
         }
