@@ -26,12 +26,12 @@ namespace BM.Web.Controllers
         /// 文章列表
         /// </summary>
         /// <returns></returns>
-        public ActionResult Index(string id, int? page)
+        public ActionResult Index(string articleClassificationId, int? page)
         {
             List<tb_Article> articleList = new List<tb_Article>();
-            if (!String.IsNullOrEmpty(id) && page!=null)
+            if (articleClassificationId!="aid" && page!=null)
             {
-                Func<tb_Article, bool> where = p => p.Id == id;
+                Func<tb_Article, bool> where = p => p.Id == articleClassificationId;
                 articleList = ArticleBll.pageByWhere(where, p => p.Date, int.Parse(page.ToString()), 10);
             }
             else

@@ -32,8 +32,7 @@
     }
     <li>
         @Html.HtmlHelper_Page(
-            int.Parse(ViewData["pageCount"].ToString()), 
-            int.Parse(Request.RequestContext.RouteData.Values["page"] == null ? "1".ToString() : Request.RequestContext.RouteData.Values["page"].ToString()),
-            "/Article/Index/'"+Request.RequestContext.RouteData.Values["page"])
+            int.Parse(ViewData["pageCount"].ToString()),
+            "/Article/Index/"+ (Request.RequestContext.RouteData.Values["articleClassificationId"]==null?"aid": Request.RequestContext.RouteData.Values["articleClassificationId"]) + "/")
     </li>
 </ul>
