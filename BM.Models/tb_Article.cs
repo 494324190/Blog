@@ -19,6 +19,7 @@ namespace BM.Models
         public string Content { get; set; }
         public System.DateTime Date { get; set; }
         public string ClassificationId { get; set; }
+        public string Abstract { get; set; }
     
         public virtual tb_ArticleClassification tb_ArticleClassification { get; set; }
     }
