@@ -91,7 +91,7 @@ aside div { box-shadow: 0px 1px 0px rgba(255,255,255,.1), inset 0px 1px 1px rgba
 .clicks li a:hover { text-decoration: underline }
 /* search */
 .searchform { overflow: hidden; padding: 10px; }
-.searchform input { background: rgba(0, 0, 0, 0.25) url(../Img/icons.png) no-repeat 3px -318px; border: 1px solid #111; width: 220px; line-height: 30px; color: #b9b9b9; padding-left: 30px; }
+.searchform input { background: rgba(0, 0, 0, 0.25) url(../Img/icons.png) no-repeat 3px -318px; border: 1px solid #111; width: 220px; line-height: 30px; color: #b9b9b9; padding-left: 30px;height:30px; }
 /* music */
 .viny dl dd { color: #b9b9b9; line-height: 24px; }
 .art { background: url(../Img/vinyl.png) no-repeat left; width: 130px; float: left; background-size: 120px; }
