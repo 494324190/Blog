@@ -29,18 +29,30 @@ namespace BM.Web.Controllers
         public ActionResult Index(string articleClassificationId, int? page)
         {
             List<tb_Article> articleList = new List<tb_Article>();
-            if (articleClassificationId!="aid" && page!=null)
+            int pageTatol=0;
+            if (articleClassificationId!="aid"&&articleClassificationId!=null)
             {
                 Func<tb_Article, bool> where = p => p.Id == articleClassificationId;
-                articleList = ArticleBll.pageByWhere(where, p => p.Date, int.Parse(page.ToString()), 10);
+                if (page != null)
+                {
+                  
+                    articleList = ArticleBll.pageByWhere(where, p => p.Date,out pageTatol, int.Parse(page.ToString()), 10);
+                }
+                else
+                {
+                    page = 1;
+                    articleList = ArticleBll.pageByWhere(where, p => p.Date, out pageTatol, int.Parse(page.ToString()), 10);
+                }
             }
             else
             {
-                page = 1;
-                articleList = ArticleBll.pageByWhere(p => p.Id != "", p => p.Date, int.Parse(page.ToString()), 10);
+                if (page == null)
+                {
+                    page = 1;
+                }
+                articleList = ArticleBll.pageByWhere(p => p.Id != "", p => p.Date, out pageTatol,int.Parse(page.ToString()), 10);
             }
-            int pageCount = articleList.Count() % 10 == 0 ? articleList.Count() / 10 : (articleList.Count() / 10) + 1;
-            ViewData["pageCount"] = pageCount;
+            ViewData["pageCount"] = pageTatol;
             return View(articleList);
         }
         /// <summary>

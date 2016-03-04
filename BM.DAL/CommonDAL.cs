@@ -21,12 +21,22 @@ namespace BM.DAL
         /// <param name="nextPage">下一页</param>
         /// <param name="pageRowCount">每页行数</param>
         /// <param name="order">排序条件</param>
+        /// <param name="pageTatol">总页数</param>
         /// <returns>list</returns>
-        public List<K> pageByWhere(Func<K, bool> where, int nextPage, int pageRowCount, Func<K,object> order)
+        public List<K> pageByWhere(Func<K, bool> where, int nextPage, int pageRowCount, Func<K,object> order,out int pageTatol)
         {
             try
             {
-                return Getlist(where,order).Skip((nextPage - 1) * pageRowCount).Take(pageRowCount).ToList();
+                IQueryable<K> modelList = Getlist(where, order).AsQueryable<K>();
+                if (modelList.Count() % pageRowCount != 0)
+                {
+                    pageTatol = (modelList.Count() / pageRowCount) + 1;
+                }
+                else
+                {
+                    pageTatol = modelList.Count() / pageRowCount;
+                }
+                return modelList.Skip((nextPage - 1) * pageRowCount).Take(pageRowCount).ToList();
             }
             catch (Exception e)
             {

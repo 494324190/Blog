@@ -22,7 +22,7 @@ namespace BM.IDAL
         /// <param name="pageRowCount">每页行数</param>
         /// <param name="order">排序条件</param>
         /// <returns>list</returns>
-        List<K> pageByWhere(Func<K, bool> where, int nextPage, int pageRowCount, Func<K,object> order);
+        List<K> pageByWhere(Func<K, bool> where, int nextPage, int pageRowCount, Func<K, object> order, out int pageTatol);
         /// <summary>
         /// 获取总页数
         /// </summary>

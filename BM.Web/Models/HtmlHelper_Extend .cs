@@ -21,15 +21,15 @@ namespace System.Web.Mvc.Html
         /// <returns></returns>
         public static HtmlString HtmlHelper_Page(this HtmlHelper helper, int pageCount, string action)
         {
-            string html = "<ul style='list-style:none;'><li style='float:left;margin-left:10px;'><a href='" + action + "0'><span>首页</span></a></li>";
+            string html = "<ul style='list-style:none;'><li style='float:left;margin-left:10px;'><a href='" + action + "1'><span>首页</span></a></li>";
 
-            for (int i = 0; i <= pageCount; i++)
+            for (int i = 0; i < pageCount; i++)
             {
                 html = html + "<li style='float:left;margin-left:10px;'>" +
                     "<a href='"+action+""+ (i + 1) + "'><span>"+(i+1)+"</span></a>"+
                     "</li>";
             }
-            html = html + "<li  style='float:left;margin-left:10px;'><a href='" + action + "" + (pageCount + 1) + "'><span>末页</span></a></li></ul>";
+            html = html + "<li  style='float:left;margin-left:10px;'><a href='" + action + "" + pageCount  + "'><span>末页</span></a></li></ul>";
             return new HtmlString(html);
         }
 
