@@ -125,3 +125,22 @@ footer { background: rgba(0, 0, 0, 0.44); -webkit-box-shadow: 0 -1px 0 rgba(0,0,
 .flickr ul li img:hover { opacity: 0.2 }
 .footer-bottom { background: rgba(0, 0, 0, 0.55); overflow: hidden; }
 .footer-bottom p { width: 1000px; margin: 0 auto; padding: 10px 0; }
+/* ‰»ÎøÚ*/
+.input {
+    background: rgba(0, 0, 0, 0.25) ;
+    border: 1px solid #111;
+    color: #b9b9b9;
+    height: 30px;
+    line-height: 30px;
+    padding-left: 30px;
+    width: 140px;
+}
+/*∞¥≈•*/
+.btn {
+    background: rgba(20, 20, 20, 0.8);
+    border-radius: 6px;
+    color: #fff;
+}
+.span_btn{
+    cursor:pointer;
+}

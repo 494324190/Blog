@@ -9,8 +9,6 @@ using BM.Common.StringOperate;
 using BM.IBLL;
 using BM.Models;
 using Microsoft.Practices.Unity;
-using BM.Web.Filter;
-
 namespace BM.Web.Controllers
 {
     /// <summary>
@@ -59,12 +57,14 @@ namespace BM.Web.Controllers
         /// 保存文章页面
         /// </summary>
         /// <returns></returns>
-        [LoginFilter]
         public ActionResult Save()
         {
-            Func<tb_ArticleClassification, bool> whereFunc = p => p.Id != "";
-            List<tb_ArticleClassification> articleClassificationList = ArticleClassificationBll.getList(whereFunc);
-            ViewData["Classification"] = new SelectList(articleClassificationList, "Id", "Name"); ;
+            if (Session["LoginState"] != null)
+            {
+                Func<tb_ArticleClassification, bool> whereFunc = p => p.Id != "";
+                List<tb_ArticleClassification> articleClassificationList = ArticleClassificationBll.getList(whereFunc);
+                ViewData["Classification"] = new SelectList(articleClassificationList, "Id", "Name");
+            }
             return View();
         }
         /// <summary>

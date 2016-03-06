@@ -1,20 +1,20 @@
 ﻿
-<form class="navbar-right" id="emailSubscription">
-    <ul class="nav navbar-nav navbar-right">
+<form style="float:right">
+    <ul>
         <li>
-            <input class="form-control" name="email" placeholder="填写您的Email订阅博客" , style="margin-top:10px;" />
+            <input class="input"  name="email" placeholder="填写Email订阅"/>
         </li>
-        <li><button type="button" class="btn btn-block " onclick="subscription()" style="margin-top:10px;margin-left:5px;" id="btn_submit">订阅</button></li>
+        <li><sapn class="btn span_btn" onclick="subscription()" style="margin-left:5px;" id="btn_submit">订阅</sapn></li>
         @if (Session["LoginState"] != null)
         {
 
-            <li>@Html.ActionLink("发文章", "Save", "Article")</li>
-            <li><a href="javascript:loginOut()">注销</a></li>
-
+            <li><span class="btn span_btn" onclick="location.href = '/Article/Save'">发布文章</span></li>
+            <li><sapn class="btn span_btn" onclick="loginOut()">注销</sapn></li>
         }
         else
         {
-            <li><a href="/Account/Login">登录</a></li>
+            <li><input class="input" id="code_txt" type="text" placeholder="登录验证码" /></li>
+            <li><span class="btn span_btn" onclick="login()">登录</span></li>
         }
     </ul>
 </form>
@@ -35,5 +35,28 @@
     }
     function subscription() {
         $.BMSubmit("/Account/Subscription", "emailSubscription", "", "订阅失败！", "订阅成功！");
+    }
+    function getCode() {
+        $.ajax({
+            url: '/Account/GetCode',
+            cache: false,
+            type: 'post',
+            success: function (data) {
+                layer.alert("随机登录码也发送到您的邮箱，页面刷新后失效！");
+            }
+        });
+    }
+    function login() {
+        $.ajax({
+            url:'/Account/Login',
+            cache:false,
+            type:'post',
+            data: { 'code_input': $('#code_txt').val() },
+            success: function (data) {
+                if (data == 1) {
+                    location.href = "/";
+                }
+            }
+        });
     }
 </script>

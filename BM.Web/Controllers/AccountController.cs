@@ -13,6 +13,7 @@ using BM.Common.StringOperate;
 using Microsoft.Practices.Unity;
 using BM.IBLL;
 using BM.Models;
+using BM.Common.Web;
 
 namespace BM.Web.Controllers
 {
@@ -20,33 +21,22 @@ namespace BM.Web.Controllers
     {
         [Dependency]
         public ICommonBLL<tb_Email> emailBll { get; set; }
-
-        [AllowAnonymous]
-        public ActionResult Login()
-        {
-            return View();
-        }
-
+        /// <summary>
+        /// 登录
+        /// </summary>
+        /// <param name="code_input">随机登录码</param>
+        /// <returns></returns>
         [HttpPost]
-        public int Login(string LoginName, string Password)
+        public int Login(string code_input)
         {
-            if (String.IsNullOrEmpty(LoginName) && String.IsNullOrEmpty(Password))
+            if (String.IsNullOrEmpty(code_input) || Encryption.MD5(code_input) != Xml.Read(Server.MapPath("../Config.xml"), "Login", 2, "password")[0])
             {
                 return 0;
             }
             else
             {
-                string path = Server.MapPath("../Config.xml");
-                if (Xml.Read(path, "Login", 2, "user")[0] == LoginName &&
-                    Xml.Read(path, "Login", 2, "password")[0] == Encryption.EncryptDES(Password, "zg753321"))
-                {
-                    Session["LoginState"] = Encryption.EncryptDES("8491hgj", "87W5Kj^nU2@$6");
-                    return 1;
-                }
-                else
-                {
-                    return 0;
-                }
+                Session["LoginState"] = 1;
+                return 1;
             }
         }
 
@@ -64,7 +54,7 @@ namespace BM.Web.Controllers
             {
                 emailModel.Id = Guid.NewGuid().ToString();
                 emailModel.Email = email;
-                if (emailBll.getModel(p => p.Email == email)!=null)
+                if (emailBll.getModel(p => p.Email == email) != null)
                 {
                     return 1;
                 }
