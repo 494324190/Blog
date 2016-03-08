@@ -6,9 +6,21 @@
 }
 <script src="~/Scripts/ckeditor/ckeditor.js"></script>
 <style>
-    .row {
-        margin-top: 23px;
-    }
+    .btn_submit {
+    font-size: 9pt;
+    color: #003399;
+    border: 1px #003399 solid;
+    color: #006699;
+    border-bottom: #93bee2 1px solid;
+    border-left: #93bee2 1px solid;
+    border-right: #93bee2 1px solid;
+    border-top: #93bee2 1px solid;
+    background-color: #e8f4ff;
+    cursor: pointer;
+    width: 60px;
+    height: 22px;
+    margin-top:10px;
+}
 </style>
 <form class="form-horizontal" id="SaveArticleForm">
     @Html.TextBoxFor(model => model.Title, new { @class = "input", @placeholder = "标题", @style = "width: 96.7%;margin-bottom:5px" })
@@ -16,7 +28,7 @@
     @Html.TextArea("ckeditor", new { @class = "form-control", @placeholder = "内容" })
     @Html.HiddenFor(model => model.Content)
 
-    <span  class="btn span_btn " onclick="saveArticle()" id="btn_submit">提交</span>
+    <button type="button" class="btn_submit" onclick="saveArticle()" id="btn_submit">提交</button>
 </form>
 <script>
     function saveArticle() {

@@ -27,14 +27,14 @@ namespace BM.Web.Controllers
         public ActionResult Index(string articleClassificationId, int? page)
         {
             List<tb_Article> articleList = new List<tb_Article>();
-            int pageTatol=0;
-            if (articleClassificationId!="aid"&&articleClassificationId!=null)
+            int pageTatol = 0;
+            if (articleClassificationId != "aid" && articleClassificationId != null)
             {
                 Func<tb_Article, bool> where = p => p.Id == articleClassificationId;
                 if (page != null)
                 {
-                  
-                    articleList = ArticleBll.pageByWhere(where, p => p.Date,out pageTatol, int.Parse(page.ToString()), 10);
+
+                    articleList = ArticleBll.pageByWhere(where, p => p.Date, out pageTatol, int.Parse(page.ToString()), 10);
                 }
                 else
                 {
@@ -48,7 +48,7 @@ namespace BM.Web.Controllers
                 {
                     page = 1;
                 }
-                articleList = ArticleBll.pageByWhere(p => p.Id != "", p => p.Date, out pageTatol,int.Parse(page.ToString()), 10);
+                articleList = ArticleBll.pageByWhere(p => p.Id != "", p => p.Date, out pageTatol, int.Parse(page.ToString()), 10);
             }
             ViewData["pageCount"] = pageTatol;
             return View(articleList);
@@ -110,7 +110,11 @@ namespace BM.Web.Controllers
                 throw e;
             }
         }
-
+        /// <summary>
+        /// 详情页
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public ActionResult Detailed(string id)
         {
             tb_Article article = new tb_Article();
