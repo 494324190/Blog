@@ -19,7 +19,7 @@
                     </li>
                 </ul>
                 <ul class="details">
-                    <li class="likes"><a href="#">10</a></li>
+                    <li class="likes"><a href="javascript:void(0)" onclick="like('@item.Id')">@item.LikeNum</a></li>
                     <li class="comments"><a href="#">34</a></li>
                     <li class="icon-time"><a href="#">@item.Date.ToString("yyyy-MM-dd")</a></li>
                 </ul>
@@ -28,3 +28,8 @@
         </li>
     }
 </ul>
+<script>
+    function like(id){
+        $.BMSubmit('/Home/Like/'+id,null , '/', '', '感谢您的厚爱！', null);
+    }
+</script>

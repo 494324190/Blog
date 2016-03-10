@@ -20,6 +20,7 @@ namespace BM.Models
         public System.DateTime Date { get; set; }
         public string ClassificationId { get; set; }
         public string Abstract { get; set; }
+        public Nullable<int> LikeNum { get; set; }
     
         public virtual tb_ArticleClassification tb_ArticleClassification { get; set; }
     }

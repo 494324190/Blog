@@ -23,6 +23,14 @@ namespace BM.Web.Controllers
             return View(articleList);
         }
 
+        public int Like(string id)
+        {
+            tb_Article articleModel = new tb_Article();
+            articleModel=ArticleBll.getModel(p=>p.Id==id);
+            articleModel.LikeNum++;
+            return ArticleBll.Edit(articleModel)?1:0;
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

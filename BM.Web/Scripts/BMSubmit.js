@@ -18,10 +18,15 @@ jQuery.extend({
             type: "POST",
             success: function (data) {
                 if (data == 1) {
-                    if (successUrl !== "") {
-                        location.href = successUrl;
-                    } else if (successContent !="" && successContent!= undefined) {
-                        layer.alert(successContent);
+                    if (successContent != "" && successContent != undefined) {
+                        if (successUrl !== "") {
+                            layer.alert(successContent, function () {
+                                location.href = successUrl;
+                            });
+                            
+                        } else {
+                            layer.alert(successContent);
+                        }
                     }
                     if (callback != undefined) {
                         layer.closeAll();
