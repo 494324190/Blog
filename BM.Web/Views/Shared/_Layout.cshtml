@@ -45,26 +45,26 @@
         @if (Request.RawUrl == "/Home/Index" || Request.RawUrl == "/")
         {
 
-            <div class="info">
-                <figure>
-                    <img src="Img/art.jpg" alt="Panama Hat">
-                    <figcaption><strong>渡人如渡己，渡已，亦是渡</strong> 当我们被误解时，会花很多时间去辩白。 但没有用，没人愿意听，大家习惯按自己的所闻、理解做出判别，每个人其实都很固执。与其努力且痛苦的试图扭转别人的评判，不如默默承受，给大家多一点时间和空间去了解。而我们省下辩解的功夫，去实现自身更久远的人生价值。其实，渡人如渡己，渡已，亦是渡人。</figcaption>
-                </figure>
-                <div class="card">
-                    <h1>我的名片</h1>
-                    <p>网名： Thomas Zhu | 朱厚熜</p>
-                    <p>职业：.net开发工程师、UWP开发工程师</p>
-                    <p>电话：185******45</p>
-                    <p>Email：admin@bugback.com</p>
-                    <ul class="linkmore">
-                        <li><a href="/" class="talk" title="给我留言"></a></li>
-                        <li><a href="/" class="address" title="联系地址"></a></li>
-                        <li><a href="mailto:haozi@daqianduan.com" class="email" title="给我写信"></a></li>
-                        <li><a href="/" class="photos" title="生活照片"></a></li>
-                        <li><a href="/" class="heart" title="关注我"></a></li>
-                    </ul>
-                </div>
+        <div class="info">
+            <figure>
+                <img src="Img/art.jpg" alt="Panama Hat">
+                <figcaption><strong>渡人如渡己，渡已，亦是渡</strong> 当我们被误解时，会花很多时间去辩白。 但没有用，没人愿意听，大家习惯按自己的所闻、理解做出判别，每个人其实都很固执。与其努力且痛苦的试图扭转别人的评判，不如默默承受，给大家多一点时间和空间去了解。而我们省下辩解的功夫，去实现自身更久远的人生价值。其实，渡人如渡己，渡已，亦是渡人。</figcaption>
+            </figure>
+            <div class="card">
+                <h1>我的名片</h1>
+                <p>网名：朱厚熜 | APP商店名称 ：Thomas Zhu</p>
+                <p>职业：.net开发工程师、UWP开发工程师</p>
+                <p>电话：185******45</p>
+                <p>Email：admin@bugback.com</p>
+                <ul class="linkmore">
+                    <li><a href="/" class="talk" title="给我留言"></a></li>
+                    <li><a href="/" class="address" title="联系地址"></a></li>
+                    <li><a href="mailto:haozi@daqianduan.com" class="email" title="给我写信"></a></li>
+                    <li><a href="/" class="photos" title="生活照片"></a></li>
+                    <li><a href="/" class="heart" title="关注我" onclick="Collectionite()"></a></li>
+                </ul>
             </div>
+        </div>
 
         }
         <!--info end-->
@@ -74,90 +74,85 @@
             <!--bloglist end-->
             @if (Request.RawUrl != "/Article/Save")
             {
-                <aside>
-                    @if (Request.RawUrl != "/Home/Index" && Request.RawUrl != "/")
+            <aside>
+                @if (Request.RawUrl != "/Home/Index" && Request.RawUrl != "/")
                 {
-                <div class="search">
-                    <form class="searchform" method="get" action="#">
-                        <input type="text" name="s" placeholder="Search">
-                    </form>
-                </div>
-                <div class="sunnav">
-                    <ul>
-                        <li><a href="/newshtml5/" target="_blank" title="HTML5 / CSS3">HTML5 / CSS3</a></li>
-                        <li><a href="/jstt/" target="_blank" title="WP / UWP">WP / UWP</a></li>
-                        <li><a href="/news/s/" target="_blank" title="框架">框架</a></li>
-                        <li><a href="/web/" target="_blank" title="数据库">数据库</a></li>
-                        <li><a href="/web/" target="_blank" title="杂文">杂文</a></li>
-                    </ul>
-                </div>
-                }
-                    <div class="tuijian">
-                        <h2>推荐文章</h2>
-                        <ol>
-                            <li><span><strong>1</strong></span><a href="/">有一种思念，是淡淡的幸福,一个心情一行文字</a></li>
-                            <li><span><strong>2</strong></span><a href="/">励志人生-要做一个潇洒的女人</a></li>
-                            <li><span><strong>3</strong></span><a href="/">女孩都有浪漫的小情怀——浪漫的求婚词</a></li>
-                            <li><span><strong>4</strong></span><a href="/">Green绿色小清新的夏天-个人博客模板</a></li>
-                            <li><span><strong>5</strong></span><a href="/">女生清新个人博客网站模板</a></li>
-                            <li><span><strong>6</strong></span><a href="/">Wedding-婚礼主题、情人节网站模板</a></li>
-                            <li><span><strong>7</strong></span><a href="/">Column 三栏布局 个人网站模板</a></li>
-                            <li><span><strong>8</strong></span><a href="/">时间煮雨-个人网站模板</a></li>
-                            <li><span><strong>9</strong></span><a href="/">花气袭人是酒香—个人网站模板</a></li>
-                        </ol>
+                    <div class="search">
+                        <form class="searchform" method="get" action="#">
+                            <input type="text" name="s" placeholder="Search">
+                        </form>
                     </div>
-                    <div class="toppic">
-                        <h2>图文并茂</h2>
+                    <div class="sunnav">
                         <ul>
-                            <li>
-                                <a href="/">
-                                    <img src="~/Img/k01.jpg">腐女不可怕，就怕腐女会画画！
-                                    <p>伤不起</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/">
-                                    <img src="~/Img/k02.jpg">问前任，你还爱我吗？无限戳中泪点~
-                                    <p>感兴趣</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/">
-                                    <img src="~/Img/k03.jpg">世上所谓幸福，就是一个笨蛋遇到一个傻瓜。
-                                    <p>喜欢</p>
-                                </a>
-                            </li>
+                            <li><a href="/Article/Index/2eaeb078-93cd-4007-95ff-620f93ec7143/1" target="_self" title="HTML5 / CSS3">HTML5 / CSS3 / JS</a></li>
+                            <li><a href="/Article/Index/da58bce3-01eb-4d29-8a40-f5ae0ea7a251/1" target="_self" title="WP / UWP">WP / UWP</a></li>
+                            <li><a href="/Article/Index/2b9de420-94cd-4993-8c7c-0d38510e60bc/1" target="_self" title="框架">框架</a></li>
+                            <li><a href="/Article/Index/884e2feb-2fea-469b-80a9-bdacafafa58f/1" target="_self" title="数据库">数据库</a></li>
+                            <li><a href="/Article/Index/420b8122-8be1-4546-babc-070ac9c387b7/1" target="_self" title="杂文">杂文</a></li>
                         </ul>
                     </div>
-                    <div class="clicks">
-                        <h2>热门点击</h2>
-                        <ol>
-                            <li><span><a href="/">慢生活</a></span><a href="/">有一种思念，是淡淡的幸福,一个心情一行文字</a></li>
-                            <li><span><a href="/">爱情美文</a></span><a href="/">励志人生-要做一个潇洒的女人</a></li>
-                            <li><span><a href="/">慢生活</a></span><a href="/">女孩都有浪漫的小情怀——浪漫的求婚词</a></li>
-                            <li><span><a href="/">博客模板</a></span><a href="/">Green绿色小清新的夏天-个人博客模板</a></li>
-                            <li><span><a href="/">女生个人博客</a></span><a href="/">女生清新个人博客网站模板</a></li>
-                            <li><span><a href="/">Wedding</a></span><a href="/">Wedding-婚礼主题、情人节网站模板</a></li>
-                            <li><span><a href="/">三栏布局</a></span><a href="/">Column 三栏布局 个人网站模板</a></li>
-                            <li><span><a href="/">个人网站模板</a></span><a href="/">时间煮雨-个人网站模板</a></li>
-                            <li><span><a href="/">古典风格</a></span><a href="/">花气袭人是酒香—个人网站模板</a></li>
-                        </ol>
-                    </div>
+                }
+                <div class="tuijian">
+                    <h2>推荐文章</h2>
+                    <ol>
+                        @for (int i = 0; i < (ViewData["recommend"] as List<BM.Models.tb_Article>).Count;i++ )
+                        {
+                            <li><span><strong>@(i+1)</strong></span><a href="/">@((ViewData["recommend"] as List<BM.Models.tb_Article>)[i].Title.Trim())</a></li>
+                        }
+                    </ol>
+                </div>
+                <div class="toppic">
+                    <h2>图文并茂</h2>
+                    <ul>
+                        <li>
+                            <a href="/">
+                                <img src="~/Img/k01.jpg">腐女不可怕，就怕腐女会画画！
+                                <p>伤不起</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/">
+                                <img src="~/Img/k02.jpg">问前任，你还爱我吗？无限戳中泪点~
+                                <p>感兴趣</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/">
+                                <img src="~/Img/k03.jpg">世上所谓幸福，就是一个笨蛋遇到一个傻瓜。
+                                <p>喜欢</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="clicks">
+                    <h2>热门点击</h2>
+                    <ol>
+                        <li><span><a href="/">慢生活</a></span><a href="/">有一种思念，是淡淡的幸福,一个心情一行文字</a></li>
+                        <li><span><a href="/">爱情美文</a></span><a href="/">励志人生-要做一个潇洒的女人</a></li>
+                        <li><span><a href="/">慢生活</a></span><a href="/">女孩都有浪漫的小情怀——浪漫的求婚词</a></li>
+                        <li><span><a href="/">博客模板</a></span><a href="/">Green绿色小清新的夏天-个人博客模板</a></li>
+                        <li><span><a href="/">女生个人博客</a></span><a href="/">女生清新个人博客网站模板</a></li>
+                        <li><span><a href="/">Wedding</a></span><a href="/">Wedding-婚礼主题、情人节网站模板</a></li>
+                        <li><span><a href="/">三栏布局</a></span><a href="/">Column 三栏布局 个人网站模板</a></li>
+                        <li><span><a href="/">个人网站模板</a></span><a href="/">时间煮雨-个人网站模板</a></li>
+                        <li><span><a href="/">古典风格</a></span><a href="/">花气袭人是酒香—个人网站模板</a></li>
+                    </ol>
+                </div>
 
 
-                    @if (Request.RawUrl == "/Home/Index" || Request.RawUrl == "/")
+                @if (Request.RawUrl == "/Home/Index" || Request.RawUrl == "/")
                 {
-                <div class="search">
-                    <form class="searchform" method="get" action="#">
-                        <input type="text" name="s" value="Search" onfocus="this.value=''" onblur="this.value='Search'">
-                    </form>
-                </div>
-                <div class="viny">
-                    @Html.Partial("../Shared/_PartialAudio");
-                </div>
+                    <div class="search">
+                        <form class="searchform" method="get" action="#">
+                            <input type="text" name="s" value="Search" onfocus="this.value=''" onblur="this.value='Search'">
+                        </form>
+                    </div>
+                    <div class="viny">
+                        @Html.Partial("../Shared/_PartialAudio");
+                    </div>
                 }
 
-                </aside>
+            </aside>
             }
         </div>
     </div>
@@ -235,3 +230,10 @@
     @Styles.Render("~/Content/ckeditor")
 </body>
 </html>
+<script>
+    function Collectionite() {
+        url = document.URL;  //你自己的主页地址
+        title = "朱刚的博客";  //你自己的主页名称
+        window.external.AddFavorite(url, title);
+    }
+</script>

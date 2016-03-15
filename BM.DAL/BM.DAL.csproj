@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArticleDAL.cs" />
     <Compile Include="BaseRepository.cs" />
     <Compile Include="CommonDAL.cs" />
     <Compile Include="ErrorDAL.cs" />

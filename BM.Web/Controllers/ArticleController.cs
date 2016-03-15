@@ -24,13 +24,13 @@ namespace BM.Web.Controllers
         /// 文章列表
         /// </summary>
         /// <returns></returns>
-        public ActionResult Index(string articleClassificationId, int? page)
+        public ActionResult Index(int? page = 1, string articleClassificationId = "aid")
         {
             List<tb_Article> articleList = new List<tb_Article>();
             int pageTatol = 0;
             if (articleClassificationId != "aid" && articleClassificationId != null)
             {
-                Func<tb_Article, bool> where = p => p.Id == articleClassificationId;
+                Func<tb_Article, bool> where = p => p.ClassificationId == articleClassificationId;
                 if (page != null)
                 {
 

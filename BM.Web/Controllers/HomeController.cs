@@ -20,6 +20,7 @@ namespace BM.Web.Controllers
         {
             int pageTatol = 0;
             List<tb_Article> articleList = ArticleBll.pageByWhere(p => p.Id != "", p => p.Date, out pageTatol, 1, 10);
+            
             return View(articleList);
         }
 
@@ -41,7 +42,6 @@ namespace BM.Web.Controllers
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
-
             return View();
         }
     }

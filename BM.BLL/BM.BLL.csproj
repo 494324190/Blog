@@ -64,6 +64,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArticleBLL.cs" />
     <Compile Include="CommonBLL.cs" />
     <Compile Include="ErrorLogBLL.cs" />
     <Compile Include="OperateLogBLL.cs" />
