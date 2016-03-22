@@ -13,6 +13,9 @@
         <EntityTypeShape EntityType="BlogModel.tb_SendEmail" Width="1.5" PointX="5.75" PointY="0.75" />
         <EntityTypeShape EntityType="BlogModel.tb_SensitiveWord" Width="1.5" PointX="6.75" PointY="3.75" />
         <AssociationConnector Association="BlogModel.FK_tb_Article_tb_ArticleClassification" />
+        <EntityTypeShape EntityType="BlogModel.tb_Comment" Width="1.5" PointX="6.75" PointY="6.75" />
+        <EntityTypeShape EntityType="BlogModel.view_Article" Width="1.5" PointX="0.75" PointY="8.75" />
+        <AssociationConnector Association="BlogModel.FK_tb_Comment_tb_Article" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

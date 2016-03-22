@@ -95,9 +95,9 @@
                 <div class="tuijian">
                     <h2>推荐文章</h2>
                     <ol>
-                        @for (int i = 0; i < (ViewData["recommend"] as List<BM.Models.tb_Article>).Count;i++ )
+                        @for (int i = 0; i < (ViewData["recommend"] as List<BM.Models.view_Article>).Count; i++)
                         {
-                            <li><span><strong>@(i+1)</strong></span><a href="/">@((ViewData["recommend"] as List<BM.Models.tb_Article>)[i].Title.Trim())</a></li>
+                            <li><span><strong>@(i+1)</strong></span><a href="/">@((ViewData["recommend"] as List<BM.Models.view_Article>)[i].Title.Trim())</a></li>
                         }
                     </ol>
                 </div>

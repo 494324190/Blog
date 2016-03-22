@@ -34,6 +34,8 @@ namespace BM.Models
         public virtual DbSet<tb_OperateLog> tb_OperateLog { get; set; }
         public virtual DbSet<tb_SendEmail> tb_SendEmail { get; set; }
         public virtual DbSet<tb_SensitiveWord> tb_SensitiveWord { get; set; }
+        public virtual DbSet<tb_Comment> tb_Comment { get; set; }
+        public virtual DbSet<view_Article> view_Article { get; set; }
     
         public virtual int getCatalog()
         {

@@ -6,7 +6,7 @@ using System.Text;
 
 namespace BM.DAL
 {
-    public class ArticleDAL : BaseRepository<tb_Article>
+    public class ArticleDAL : BaseRepository<view_Article>
     {
         /// <summary>
         /// 根据条件分页
@@ -17,11 +17,11 @@ namespace BM.DAL
         /// <param name="order">排序条件</param>
         /// <param name="pageTatol">总页数</param>
         /// <returns>list</returns>
-        public List<tb_Article> pageByWhere(Func<tb_Article, bool> where, int nextPage, int pageRowCount, Func<tb_Article, object> order, out int pageTatol)
+        public List<view_Article> pageByWhere(Func<view_Article, bool> where, int nextPage, int pageRowCount, Func<view_Article, object> order, out int pageTatol)
         {
             try
             {
-                IQueryable<tb_Article> modelList = Getlist(where, order).AsQueryable<tb_Article>();
+                IQueryable<view_Article> modelList = Getlist(where, order).AsQueryable<view_Article>();
                 if (modelList.Count() % pageRowCount != 0)
                 {
                     pageTatol = (modelList.Count() / pageRowCount) + 1;

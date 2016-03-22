@@ -24,6 +24,16 @@
           <Property Name="Id" Type="nvarchar" MaxLength="36" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="20" Nullable="false" />
         </EntityType>
+        <EntityType Name="tb_Comment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="36" Nullable="false" />
+          <Property Name="_Content" Type="ntext" Nullable="false" />
+          <Property Name="IP" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="DateTime" Type="datetime" Nullable="false" />
+          <Property Name="ArticleId" Type="nvarchar" MaxLength="36" Nullable="false" />
+        </EntityType>
         <EntityType Name="tb_Email">
           <Key>
             <PropertyRef Name="Id" />
@@ -69,6 +79,25 @@
           <Property Name="Id" Type="nvarchar" MaxLength="36" Nullable="false" />
           <Property Name="SensitiveWord" Type="nvarchar" MaxLength="10" Nullable="false" />
         </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“Blog.dbo.view_Article”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="view_Article">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Title" />
+            <PropertyRef Name="Content" />
+            <PropertyRef Name="Date" />
+            <PropertyRef Name="ClassificationId" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="36" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Content" Type="ntext" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="ClassificationId" Type="nvarchar" MaxLength="36" Nullable="false" />
+          <Property Name="Abstract" Type="ntext" />
+          <Property Name="LikeNum" Type="int" />
+          <Property Name="CommentCount" Type="int" />
+        </EntityType>
         <Association Name="FK_tb_Article_tb_ArticleClassification">
           <End Role="tb_ArticleClassification" Type="Self.tb_ArticleClassification" Multiplicity="1" />
           <End Role="tb_Article" Type="Self.tb_Article" Multiplicity="*" />
@@ -81,18 +110,47 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_tb_Comment_tb_Article">
+          <End Role="tb_Article" Type="Self.tb_Article" Multiplicity="1" />
+          <End Role="tb_Comment" Type="Self.tb_Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_Article">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tb_Comment">
+              <PropertyRef Name="ArticleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Function Name="getCatalog" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="BlogModelStoreContainer">
           <EntitySet Name="tb_Article" EntityType="Self.tb_Article" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_ArticleClassification" EntityType="Self.tb_ArticleClassification" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_Comment" EntityType="Self.tb_Comment" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_Email" EntityType="Self.tb_Email" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_ErrorLog" EntityType="Self.tb_ErrorLog" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_OperateLog" EntityType="Self.tb_OperateLog" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_SendEmail" EntityType="Self.tb_SendEmail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_SensitiveWord" EntityType="Self.tb_SensitiveWord" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="view_Article" EntityType="Self.view_Article" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [view_Article].[Id] AS [Id], 
+    [view_Article].[Title] AS [Title], 
+    [view_Article].[Content] AS [Content], 
+    [view_Article].[Date] AS [Date], 
+    [view_Article].[ClassificationId] AS [ClassificationId], 
+    [view_Article].[Abstract] AS [Abstract], 
+    [view_Article].[LikeNum] AS [LikeNum], 
+    [view_Article].[CommentCount] AS [CommentCount]
+    FROM [dbo].[view_Article] AS [view_Article]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK_tb_Article_tb_ArticleClassification" Association="Self.FK_tb_Article_tb_ArticleClassification">
             <End Role="tb_ArticleClassification" EntitySet="tb_ArticleClassification" />
             <End Role="tb_Article" EntitySet="tb_Article" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_Comment_tb_Article" Association="Self.FK_tb_Comment_tb_Article">
+            <End Role="tb_Article" EntitySet="tb_Article" />
+            <End Role="tb_Comment" EntitySet="tb_Comment" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -112,6 +170,12 @@
             <End Role="tb_ArticleClassification" EntitySet="tb_ArticleClassification" />
             <End Role="tb_Article" EntitySet="tb_Article" />
           </AssociationSet>
+          <EntitySet Name="tb_Comment" EntityType="BlogModel.tb_Comment" />
+          <EntitySet Name="view_Article" EntityType="BlogModel.view_Article" />
+          <AssociationSet Name="FK_tb_Comment_tb_Article" Association="BlogModel.FK_tb_Comment_tb_Article">
+            <End Role="tb_Article" EntitySet="tb_Article" />
+            <End Role="tb_Comment" EntitySet="tb_Comment" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="tb_Article">
           <Key>
@@ -125,6 +189,7 @@
           <Property Name="Abstract" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="LikeNum" Type="Int32" />
           <NavigationProperty Name="tb_ArticleClassification" Relationship="BlogModel.FK_tb_Article_tb_ArticleClassification" FromRole="tb_Article" ToRole="tb_ArticleClassification" />
+          <NavigationProperty Name="tb_Comment" Relationship="BlogModel.FK_tb_Comment_tb_Article" FromRole="tb_Article" ToRole="tb_Comment" />
         </EntityType>
         <EntityType Name="tb_ArticleClassification">
           <Key>
@@ -188,6 +253,46 @@
             </Principal>
             <Dependent Role="tb_Article">
               <PropertyRef Name="ClassificationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="tb_Comment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="true" />
+          <Property Name="C_Content" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IP" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="DateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ArticleId" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tb_Article" Relationship="BlogModel.FK_tb_Comment_tb_Article" FromRole="tb_Comment" ToRole="tb_Article" />
+        </EntityType>
+        <EntityType Name="view_Article">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Title" />
+            <PropertyRef Name="Content" />
+            <PropertyRef Name="Date" />
+            <PropertyRef Name="ClassificationId" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Content" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ClassificationId" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="true" />
+          <Property Name="Abstract" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LikeNum" Type="Int32" />
+          <Property Name="CommentCount" Type="Int32" />
+        </EntityType>
+        <Association Name="FK_tb_Comment_tb_Article">
+          <End Type="BlogModel.tb_Article" Role="tb_Article" Multiplicity="1" />
+          <End Type="BlogModel.tb_Comment" Role="tb_Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_Article">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tb_Comment">
+              <PropertyRef Name="ArticleId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -265,6 +370,31 @@
             <EntityTypeMapping TypeName="BlogModel.tb_SensitiveWord">
               <MappingFragment StoreEntitySet="tb_SensitiveWord">
                 <ScalarProperty Name="SensitiveWord" ColumnName="SensitiveWord" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_Comment">
+            <EntityTypeMapping TypeName="BlogModel.tb_Comment">
+              <MappingFragment StoreEntitySet="tb_Comment">
+                <ScalarProperty Name="ArticleId" ColumnName="ArticleId" />
+                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+                <ScalarProperty Name="IP" ColumnName="IP" />
+                <ScalarProperty Name="C_Content" ColumnName="_Content" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="view_Article">
+            <EntityTypeMapping TypeName="BlogModel.view_Article">
+              <MappingFragment StoreEntitySet="view_Article">
+                <ScalarProperty Name="CommentCount" ColumnName="CommentCount" />
+                <ScalarProperty Name="LikeNum" ColumnName="LikeNum" />
+                <ScalarProperty Name="Abstract" ColumnName="Abstract" />
+                <ScalarProperty Name="ClassificationId" ColumnName="ClassificationId" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

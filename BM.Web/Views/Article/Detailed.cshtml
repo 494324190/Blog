@@ -1,4 +1,4 @@
-﻿@model BM.Models.tb_Article
+﻿@model BM.Models.view_Article
 @{
     ViewBag.Title = "Detailed";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -12,6 +12,18 @@
         <ul>
             @Html.Raw(Model.Content)
         </ul>
+        <div>
+            @Html.ActionLink("共" + @Model.CommentCount + "条评论", "", "", new { @Style = "color:#E72B2B;float:right;margin-bottom:5px" })
+        </div>
+        <form id="commentForm">
+            @Html.TextArea("_Content", new { @class = "textarea", @placeholder = "留下您的牛评" })
+            <button class="btn_submit" type="button" onclick="saveComment()">评论</button>
+        </form>
+        <!--bloglist end-->
     </div>
-    <!--bloglist end-->
 </div>
+<script>
+    function saveComment() {
+        $.BMSubmit("/Article/AddComment", "commentForm", "", "评论失败！", "感谢您的评论！");
+    };
+</script>

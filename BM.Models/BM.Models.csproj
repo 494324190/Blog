@@ -72,6 +72,9 @@
     <Compile Include="tb_ArticleClassification.cs">
       <DependentUpon>Blog.tt</DependentUpon>
     </Compile>
+    <Compile Include="tb_Comment.cs">
+      <DependentUpon>Blog.tt</DependentUpon>
+    </Compile>
     <Compile Include="tb_Email.cs">
       <DependentUpon>Blog.tt</DependentUpon>
     </Compile>
@@ -85,6 +88,9 @@
       <DependentUpon>Blog.tt</DependentUpon>
     </Compile>
     <Compile Include="tb_SensitiveWord.cs">
+      <DependentUpon>Blog.tt</DependentUpon>
+    </Compile>
+    <Compile Include="view_Article.cs">
       <DependentUpon>Blog.tt</DependentUpon>
     </Compile>
   </ItemGroup>

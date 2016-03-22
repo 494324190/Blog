@@ -43,6 +43,12 @@ namespace BM.Core
             //邮箱注入
             container.RegisterType<ICommonDAL<tb_Email>, CommonDAL<tb_Email>>();
             container.RegisterType<ICommonBLL<tb_Email>, CommonBLL<tb_Email>>();
+            //评论注入
+            container.RegisterType<ICommonDAL<tb_Comment>, CommonDAL<tb_Comment>>();
+            container.RegisterType<ICommonBLL<tb_Comment>, CommonBLL<tb_Comment>>();
+            //文章视图注入
+            container.RegisterType<ICommonDAL<view_Article>, CommonDAL<view_Article>>();
+            container.RegisterType<ICommonBLL<view_Article>, CommonBLL<view_Article>>();
 
         }
     }

@@ -19,7 +19,7 @@ namespace BM.BLL
         /// <param name="nextPage">下一页（默认值1）</param>
         /// <param name="pageRowCount">每页行数（默认值10）</param>
         /// <returns>list</returns>
-        public List<tb_Article> pageByWhere(Func<tb_Article, bool> where, Func<tb_Article, object> order, out int pageTatol, int nextPage = 1, int pageRowCount = 10)
+        public List<view_Article> pageByWhere(Func<view_Article, bool> where, Func<view_Article, object> order, out int pageTatol, int nextPage = 1, int pageRowCount = 10)
         {
             try
             {

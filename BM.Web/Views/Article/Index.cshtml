@@ -3,7 +3,7 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@model IEnumerable<BM.Models.tb_Article>
+@model IEnumerable<BM.Models.view_Article>
 <ul class="bloglist">
     @foreach (var item in Model)
     {
@@ -22,7 +22,7 @@
                 </ul>
                 <ul class="details">
                     <li class="likes"><a href="#">@item.LikeNum</a></li>
-                    <li class="comments"><a href="#">34</a></li>
+                    <li class="comments"><a href="#">@item.CommentCount</a></li>
                     <li class="icon-time"><a href="#">@item.Date.ToString("yyyy-MM-dd")</a></li>
                 </ul>
             </div>

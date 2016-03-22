@@ -7,6 +7,8 @@ using BM.Common.StringOperate;
 using BM.IBLL;
 using BM.Models;
 using Microsoft.Practices.Unity;
+using BM.BLL;
+using BM.Web.Models;
 
 namespace BM.Web.Controllers
 {
@@ -16,11 +18,12 @@ namespace BM.Web.Controllers
         public ICommonBLL<tb_Article> ArticleBll { get; set; }
         [Dependency]
         public ICommonBLL<tb_ArticleClassification> ArticleClassificationBll { get; set; }
+        [Dependency]
+        public ICommonBLL<view_Article> articleBll { get; set; }
         public ActionResult Index()
         {
             int pageTatol = 0;
-            List<tb_Article> articleList = ArticleBll.pageByWhere(p => p.Id != "", p => p.Date, out pageTatol, 1, 10);
-            
+            List<view_Article> articleList = articleBll.pageByWhere(p => p.Id != "", p => p.Date, out pageTatol, 1, 10);
             return View(articleList);
         }
 

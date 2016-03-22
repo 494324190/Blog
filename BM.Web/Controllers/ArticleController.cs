@@ -9,6 +9,7 @@ using BM.Common.StringOperate;
 using BM.IBLL;
 using BM.Models;
 using Microsoft.Practices.Unity;
+using BM.Common.Web;
 namespace BM.Web.Controllers
 {
     /// <summary>
@@ -19,27 +20,33 @@ namespace BM.Web.Controllers
         [Dependency]
         public ICommonBLL<tb_Article> ArticleBll { get; set; }
         [Dependency]
+        public ICommonBLL<view_Article> vArticleBll { get; set; }
+
+        ArticleBLL articleBll = new ArticleBLL();
+        [Dependency]
         public ICommonBLL<tb_ArticleClassification> ArticleClassificationBll { get; set; }
+        [Dependency]
+        public ICommonBLL<tb_Comment> commentBll { get; set; }
         /// <summary>
         /// 文章列表
         /// </summary>
         /// <returns></returns>
         public ActionResult Index(int? page = 1, string articleClassificationId = "aid")
         {
-            List<tb_Article> articleList = new List<tb_Article>();
+            List<view_Article> articleList = new List<view_Article>();
             int pageTatol = 0;
             if (articleClassificationId != "aid" && articleClassificationId != null)
             {
-                Func<tb_Article, bool> where = p => p.ClassificationId == articleClassificationId;
+                Func<view_Article, bool> where = p => p.ClassificationId == articleClassificationId;
                 if (page != null)
                 {
 
-                    articleList = ArticleBll.pageByWhere(where, p => p.Date, out pageTatol, int.Parse(page.ToString()), 10);
+                    articleList = vArticleBll.pageByWhere(where, p => p.Date, out pageTatol, int.Parse(page.ToString()),10);
                 }
                 else
                 {
                     page = 1;
-                    articleList = ArticleBll.pageByWhere(where, p => p.Date, out pageTatol, int.Parse(page.ToString()), 10);
+                    articleList = vArticleBll.pageByWhere(where, p => p.Date, out pageTatol, int.Parse(page.ToString()), 10);
                 }
             }
             else
@@ -48,7 +55,7 @@ namespace BM.Web.Controllers
                 {
                     page = 1;
                 }
-                articleList = ArticleBll.pageByWhere(p => p.Id != "", p => p.Date, out pageTatol, int.Parse(page.ToString()), 10);
+                articleList = vArticleBll.pageByWhere(p => p.Id != "", p => p.Date, out pageTatol, int.Parse(page.ToString()), 10);
             }
             ViewData["pageCount"] = pageTatol;
             return View(articleList);
@@ -117,9 +124,23 @@ namespace BM.Web.Controllers
         /// <returns></returns>
         public ActionResult Detailed(string id)
         {
-            tb_Article article = new tb_Article();
-            article = ArticleBll.getModel(p => p.Id == id);
+            view_Article article = new view_Article();
+            article = vArticleBll.getModel(p => p.Id == id);
             return View(article);
+        }
+        /// <summary>
+        /// 保存评论
+        /// </summary>
+        /// <returns></returns>
+        public int AddComment(string _Content)
+        {
+            tb_Comment commentModel = new tb_Comment();
+            commentModel.ArticleId = Request.UrlReferrer.Segments[3];
+            commentModel.C_Content = _Content;
+            commentModel.DateTime = DateTime.Now;
+            commentModel.IP = Ip.getIp();
+            commentModel.Id = Guid.NewGuid().ToString();
+            return commentBll.Save(commentModel)?1:0;
         }
         [HttpPost]
         public ActionResult UploadImage(HttpPostedFileBase upload)
