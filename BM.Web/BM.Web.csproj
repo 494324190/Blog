@@ -653,6 +653,8 @@
     <Content Include="Views\Article\Detailed.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_PartialAudio.cshtml" />
+    <Content Include="Views\Article\Comment.cshtml" />
+    <Content Include="Views\Shared\_PartialComment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

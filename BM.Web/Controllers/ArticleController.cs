@@ -142,6 +142,17 @@ namespace BM.Web.Controllers
             commentModel.Id = Guid.NewGuid().ToString();
             return commentBll.Save(commentModel)?1:0;
         }
+        /// <summary>
+        /// 评论列表
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public ActionResult Comment(string id)
+        {
+            List<tb_Comment> list = commentBll.getList(p=>p.ArticleId==id);
+            return View(list);
+
+        }
         [HttpPost]
         public ActionResult UploadImage(HttpPostedFileBase upload)
         {

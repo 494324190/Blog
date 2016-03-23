@@ -13,7 +13,7 @@
             @Html.Raw(Model.Content)
         </ul>
         <div>
-            @Html.ActionLink("共" + @Model.CommentCount + "条评论", "", "", new { @Style = "color:#E72B2B;float:right;margin-bottom:5px" })
+            @Html.ActionLink("共" + @Model.CommentCount + "条评论", "Comment", "Article", new { id=Model.Id}, new { @Style = "color:#E72B2B;float:right;margin-bottom:5px" })
         </div>
         <form id="commentForm">
             @Html.TextArea("_Content", new { @class = "textarea", @placeholder = "留下您的牛评" })

@@ -1,0 +1,14 @@
+﻿@foreach (var item in ViewData["comment"] as List<BM.Models.tb_Comment>)
+{
+    <dl>
+        <dt>
+            <img src="~/Img/s8.jpg">
+        </dt>
+        <dd>
+            @item.IP
+            <time>@item.DateTime</time>
+        </dd>
+        <dd>在 <a href="/Article/Detailed/@item.tb_Article.Id" class="title">@item.tb_Article.Title </a>中评论：</dd>
+        <dd>@item.C_Content</dd>
+    </dl>
+}
