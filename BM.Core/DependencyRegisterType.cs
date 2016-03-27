@@ -1,20 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using BM.BLL;
+﻿using BM.BLL;
 using BM.DAL;
 using BM.IBLL;
 using BM.IDAL;
 using Microsoft.Practices.Unity;
 using BM.Models;
-using System.Reflection;
-
 namespace BM.Core
 {
     public class DependencyRegisterType
     {
-        //注入所需的对象
+		//-------------------------------------------------
+		//该内容由T4模板生成
+		//-------------------------------------------------
+
+		//注入所需的对象
         //在每次新添加一个IBLL、BLL、IDAL、DAL时需要在此添加两行注入代码，代码格式如下：
         //container.RegisterType<DAL接口<实体类型>, 接口实现<实体类型>>();
         //container.RegisterType<BLL接口<实体类型>, 接口实现<实体类型>>();
@@ -25,31 +23,24 @@ namespace BM.Core
         //    container.RegisterType<ICommonBLL<调用处返回值的实体类型>, CommonBLL<调用处返回值的实体类型>>();
         public static void Container_Sys(ref UnityContainer container)
         {
-            //错误日志注入
-            container.RegisterType<ICommonDAL<tb_ErrorLog>, CommonDAL<tb_ErrorLog>>();
-            container.RegisterType<ICommonBLL<tb_ErrorLog>, CommonBLL<tb_ErrorLog>>();
-            //操作日志注入
-            container.RegisterType<ICommonDAL<tb_OperateLog>, CommonDAL<tb_OperateLog>>();
-            container.RegisterType<ICommonBLL<tb_OperateLog>, CommonBLL<tb_OperateLog>>();
-            //敏感词汇注入
-            container.RegisterType<ICommonDAL<tb_SensitiveWord>, CommonDAL<tb_SensitiveWord>>();
-            container.RegisterType<ICommonBLL<tb_SensitiveWord>, CommonBLL<tb_SensitiveWord>>();
-            //文章注入
-            container.RegisterType<ICommonDAL<tb_Article>, CommonDAL<tb_Article>>();
-            container.RegisterType<ICommonBLL<tb_Article>, CommonBLL<tb_Article>>();
-            //文章类别注入
-            container.RegisterType<ICommonDAL<tb_ArticleClassification>,CommonDAL<tb_ArticleClassification>>() ;
-            container.RegisterType<ICommonBLL<tb_ArticleClassification>, CommonBLL<tb_ArticleClassification>>();
-            //邮箱注入
-            container.RegisterType<ICommonDAL<tb_Email>, CommonDAL<tb_Email>>();
-            container.RegisterType<ICommonBLL<tb_Email>, CommonBLL<tb_Email>>();
-            //评论注入
-            container.RegisterType<ICommonDAL<tb_Comment>, CommonDAL<tb_Comment>>();
-            container.RegisterType<ICommonBLL<tb_Comment>, CommonBLL<tb_Comment>>();
-            //文章视图注入
-            container.RegisterType<ICommonDAL<view_Article>, CommonDAL<view_Article>>();
-            container.RegisterType<ICommonBLL<view_Article>, CommonBLL<view_Article>>();
-
-        }
+							container.RegisterType<ICommonDAL<tb_Article>, CommonDAL<tb_Article>>();
+				container.RegisterType<ICommonBLL<tb_Article>, CommonBLL<tb_Article>>();
+									container.RegisterType<ICommonDAL<tb_ArticleClassification>, CommonDAL<tb_ArticleClassification>>();
+				container.RegisterType<ICommonBLL<tb_ArticleClassification>, CommonBLL<tb_ArticleClassification>>();
+									container.RegisterType<ICommonDAL<tb_Comment>, CommonDAL<tb_Comment>>();
+				container.RegisterType<ICommonBLL<tb_Comment>, CommonBLL<tb_Comment>>();
+									container.RegisterType<ICommonDAL<tb_Email>, CommonDAL<tb_Email>>();
+				container.RegisterType<ICommonBLL<tb_Email>, CommonBLL<tb_Email>>();
+									container.RegisterType<ICommonDAL<tb_ErrorLog>, CommonDAL<tb_ErrorLog>>();
+				container.RegisterType<ICommonBLL<tb_ErrorLog>, CommonBLL<tb_ErrorLog>>();
+									container.RegisterType<ICommonDAL<tb_OperateLog>, CommonDAL<tb_OperateLog>>();
+				container.RegisterType<ICommonBLL<tb_OperateLog>, CommonBLL<tb_OperateLog>>();
+									container.RegisterType<ICommonDAL<tb_SendEmail>, CommonDAL<tb_SendEmail>>();
+				container.RegisterType<ICommonBLL<tb_SendEmail>, CommonBLL<tb_SendEmail>>();
+									container.RegisterType<ICommonDAL<tb_SensitiveWord>, CommonDAL<tb_SensitiveWord>>();
+				container.RegisterType<ICommonBLL<tb_SensitiveWord>, CommonBLL<tb_SensitiveWord>>();
+									container.RegisterType<ICommonDAL<view_Article>, CommonDAL<view_Article>>();
+				container.RegisterType<ICommonBLL<view_Article>, CommonBLL<view_Article>>();
+					        }
     }
 }
