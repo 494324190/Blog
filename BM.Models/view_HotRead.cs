@@ -12,8 +12,9 @@ namespace BM.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class view_Article
+    public partial class view_HotRead
     {
+        public string Name { get; set; }
         public string Id { get; set; }
         public string Title { get; set; }
         public string Content { get; set; }
@@ -21,7 +22,6 @@ namespace BM.Models
         public string ClassificationId { get; set; }
         public string Abstract { get; set; }
         public Nullable<int> LikeNum { get; set; }
-        public Nullable<int> CommentCount { get; set; }
         public Nullable<int> ReadNum { get; set; }
     }
 }

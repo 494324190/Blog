@@ -8,7 +8,7 @@
     <div id="index_view">
         <h2 class="t_nav"><a href="/">网站首页</a><a href="/">慢生活</a></h2>
         <h1 class="c_titile">@Html.Raw(Model.Title)</h1>
-        <p class="box">发布时间：@Html.Raw(Model.Date.ToString("yyyy-MM-dd"))<span>编辑：DanceSmile</span>阅读（30）</p>
+        <p class="box">发布时间：@Html.Raw(Model.Date.ToString("yyyy-MM-dd"))<span>编辑：Thomas Zhu</span>阅读（@Model.ReadNum）</p>
         <ul>
             @Html.Raw(Model.Content)
         </ul>

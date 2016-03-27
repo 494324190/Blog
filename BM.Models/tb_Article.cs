@@ -26,6 +26,7 @@ namespace BM.Models
         public string ClassificationId { get; set; }
         public string Abstract { get; set; }
         public Nullable<int> LikeNum { get; set; }
+        public Nullable<int> ReadNum { get; set; }
     
         public virtual tb_ArticleClassification tb_ArticleClassification { get; set; }
         public virtual ICollection<tb_Comment> tb_Comment { get; set; }

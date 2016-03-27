@@ -67,7 +67,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DependencyRegisterType.cs">
-      <SubType>Code</SubType>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DependencyRegisterType.tt</DependentUpon>

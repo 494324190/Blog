@@ -124,6 +124,10 @@ namespace BM.Web.Controllers
         /// <returns></returns>
         public ActionResult Detailed(string id)
         {
+            tb_Article articleModel = new tb_Article();
+            articleModel = ArticleBll.getModel(p => p.Id == id);
+            articleModel.ReadNum++;
+            ArticleBll.Edit(articleModel);
             view_Article article = new view_Article();
             article = vArticleBll.getModel(p => p.Id == id);
             return View(article);

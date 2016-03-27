@@ -70,6 +70,7 @@
     <Compile Include="ErrorLogBLL.cs" />
     <Compile Include="OperateLogBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="view_HotReadBLL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BM.DAL\BM.DAL.csproj">

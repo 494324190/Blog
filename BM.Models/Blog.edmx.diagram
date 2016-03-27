@@ -16,6 +16,7 @@
         <EntityTypeShape EntityType="BlogModel.tb_Comment" Width="1.5" PointX="6.75" PointY="6.75" />
         <EntityTypeShape EntityType="BlogModel.view_Article" Width="1.5" PointX="0.75" PointY="8.75" />
         <AssociationConnector Association="BlogModel.FK_tb_Comment_tb_Article" />
+        <EntityTypeShape EntityType="BlogModel.view_HotRead" Width="1.5" PointX="3.375" PointY="8.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

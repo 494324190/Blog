@@ -41,6 +41,8 @@ namespace BM.Core
 				container.RegisterType<ICommonBLL<tb_SensitiveWord>, CommonBLL<tb_SensitiveWord>>();
 									container.RegisterType<ICommonDAL<view_Article>, CommonDAL<view_Article>>();
 				container.RegisterType<ICommonBLL<view_Article>, CommonBLL<view_Article>>();
+									container.RegisterType<ICommonDAL<view_HotRead>, CommonDAL<view_HotRead>>();
+				container.RegisterType<ICommonBLL<view_HotRead>, CommonBLL<view_HotRead>>();
 					        }
     }
 }

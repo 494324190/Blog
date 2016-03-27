@@ -16,6 +16,7 @@
           <Property Name="ClassificationId" Type="nvarchar" MaxLength="36" Nullable="false" />
           <Property Name="Abstract" Type="ntext" />
           <Property Name="LikeNum" Type="int" />
+          <Property Name="ReadNum" Type="int" />
         </EntityType>
         <EntityType Name="tb_ArticleClassification">
           <Key>
@@ -97,6 +98,28 @@
           <Property Name="Abstract" Type="ntext" />
           <Property Name="LikeNum" Type="int" />
           <Property Name="CommentCount" Type="int" />
+          <Property Name="ReadNum" Type="int" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“Blog.dbo.view_HotRead”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="view_HotRead">
+          <Key>
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Title" />
+            <PropertyRef Name="Content" />
+            <PropertyRef Name="Date" />
+            <PropertyRef Name="ClassificationId" />
+          </Key>
+          <Property Name="Name" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Id" Type="nvarchar" MaxLength="36" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Content" Type="ntext" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="ClassificationId" Type="nvarchar" MaxLength="36" Nullable="false" />
+          <Property Name="Abstract" Type="ntext" />
+          <Property Name="LikeNum" Type="int" />
+          <Property Name="ReadNum" Type="int" />
         </EntityType>
         <Association Name="FK_tb_Article_tb_ArticleClassification">
           <End Role="tb_ArticleClassification" Type="Self.tb_ArticleClassification" Multiplicity="1" />
@@ -141,8 +164,22 @@
     [view_Article].[ClassificationId] AS [ClassificationId], 
     [view_Article].[Abstract] AS [Abstract], 
     [view_Article].[LikeNum] AS [LikeNum], 
-    [view_Article].[CommentCount] AS [CommentCount]
+    [view_Article].[CommentCount] AS [CommentCount], 
+    [view_Article].[ReadNum] AS [ReadNum]
     FROM [dbo].[view_Article] AS [view_Article]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="view_HotRead" EntityType="Self.view_HotRead" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [view_HotRead].[Name] AS [Name], 
+    [view_HotRead].[Id] AS [Id], 
+    [view_HotRead].[Title] AS [Title], 
+    [view_HotRead].[Content] AS [Content], 
+    [view_HotRead].[Date] AS [Date], 
+    [view_HotRead].[ClassificationId] AS [ClassificationId], 
+    [view_HotRead].[Abstract] AS [Abstract], 
+    [view_HotRead].[LikeNum] AS [LikeNum], 
+    [view_HotRead].[ReadNum] AS [ReadNum]
+    FROM [dbo].[view_HotRead] AS [view_HotRead]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FK_tb_Article_tb_ArticleClassification" Association="Self.FK_tb_Article_tb_ArticleClassification">
             <End Role="tb_ArticleClassification" EntitySet="tb_ArticleClassification" />
@@ -176,6 +213,7 @@
             <End Role="tb_Article" EntitySet="tb_Article" />
             <End Role="tb_Comment" EntitySet="tb_Comment" />
           </AssociationSet>
+          <EntitySet Name="view_HotRead" EntityType="BlogModel.view_HotRead" />
         </EntityContainer>
         <EntityType Name="tb_Article">
           <Key>
@@ -190,6 +228,7 @@
           <Property Name="LikeNum" Type="Int32" />
           <NavigationProperty Name="tb_ArticleClassification" Relationship="BlogModel.FK_tb_Article_tb_ArticleClassification" FromRole="tb_Article" ToRole="tb_ArticleClassification" />
           <NavigationProperty Name="tb_Comment" Relationship="BlogModel.FK_tb_Comment_tb_Article" FromRole="tb_Article" ToRole="tb_Comment" />
+          <Property Name="ReadNum" Type="Int32" />
         </EntityType>
         <EntityType Name="tb_ArticleClassification">
           <Key>
@@ -283,6 +322,7 @@
           <Property Name="Abstract" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="LikeNum" Type="Int32" />
           <Property Name="CommentCount" Type="Int32" />
+          <Property Name="ReadNum" Type="Int32" />
         </EntityType>
         <Association Name="FK_tb_Comment_tb_Article">
           <End Type="BlogModel.tb_Article" Role="tb_Article" Multiplicity="1" />
@@ -296,6 +336,25 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="view_HotRead">
+          <Key>
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Title" />
+            <PropertyRef Name="Content" />
+            <PropertyRef Name="Date" />
+            <PropertyRef Name="ClassificationId" />
+          </Key>
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Content" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ClassificationId" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="true" />
+          <Property Name="Abstract" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LikeNum" Type="Int32" />
+          <Property Name="ReadNum" Type="Int32" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -306,6 +365,7 @@
           <EntitySetMapping Name="tb_Article">
             <EntityTypeMapping TypeName="BlogModel.tb_Article">
               <MappingFragment StoreEntitySet="tb_Article">
+                <ScalarProperty Name="ReadNum" ColumnName="ReadNum" />
                 <ScalarProperty Name="LikeNum" ColumnName="LikeNum" />
                 <ScalarProperty Name="Abstract" ColumnName="Abstract" />
                 <ScalarProperty Name="ClassificationId" ColumnName="ClassificationId" />
@@ -388,6 +448,7 @@
           <EntitySetMapping Name="view_Article">
             <EntityTypeMapping TypeName="BlogModel.view_Article">
               <MappingFragment StoreEntitySet="view_Article">
+                <ScalarProperty Name="ReadNum" ColumnName="ReadNum" />
                 <ScalarProperty Name="CommentCount" ColumnName="CommentCount" />
                 <ScalarProperty Name="LikeNum" ColumnName="LikeNum" />
                 <ScalarProperty Name="Abstract" ColumnName="Abstract" />
@@ -396,6 +457,21 @@
                 <ScalarProperty Name="Content" ColumnName="Content" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="view_HotRead">
+            <EntityTypeMapping TypeName="BlogModel.view_HotRead">
+              <MappingFragment StoreEntitySet="view_HotRead">
+                <ScalarProperty Name="ReadNum" ColumnName="ReadNum" />
+                <ScalarProperty Name="LikeNum" ColumnName="LikeNum" />
+                <ScalarProperty Name="Abstract" ColumnName="Abstract" />
+                <ScalarProperty Name="ClassificationId" ColumnName="ClassificationId" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

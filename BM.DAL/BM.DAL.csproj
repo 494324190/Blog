@@ -59,6 +59,7 @@
     <Compile Include="ErrorDAL.cs" />
     <Compile Include="OperateLogDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="view_HotReadDAL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BM.IDAL\BM.IDAL.csproj">
